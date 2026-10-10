@@ -9,7 +9,7 @@
 <link rel="apple-touch-icon" href="assets/logos/favicon.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 :root {
@@ -38,7 +38,7 @@ body {
   line-height: 1.75;
   background: var(--off-white);
   color: var(--charcoal);
-  overflow-x: hidden;
+  overflow-x: clip;
   cursor: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -130,96 +130,131 @@ body.cursor-hover #cursor-ring {
 }
 @keyframes slideUp { to { transform: translateY(-100%); } }
 
-/* ── NAVBAR ── */
+/* ── NAVBAR (SLIM LUXURY FLOATING CAPSULE) ── */
 #navbar {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 36px);
+  max-width: 880px;
   z-index: 8000;
-  padding: 24px 5%;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(216, 206, 191, 0.65);
+  border-radius: 999px;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03);
+  padding: 6px 8px 6px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: background 0.5s ease, padding 0.4s ease, border-color 0.4s ease;
-  border-bottom: 1px solid transparent;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 #navbar.scrolled {
-  background: rgba(245,242,238,0.96);
-  backdrop-filter: blur(16px);
-  padding: 16px 5%;
-  border-bottom-color: var(--stone);
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(184, 150, 90, 0.45);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(184, 150, 90, 0.08);
+  top: 14px;
+  padding: 5px 8px 5px 18px;
 }
 .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
 .nav-logo-img {
-  height: 64px;
+  height: 38px;
   width: auto;
-  max-width: 280px;
+  max-width: 190px;
   object-fit: contain;
   transition: transform 0.3s ease, height 0.3s ease;
 }
 #navbar.scrolled .nav-logo-img {
-  height: 52px;
+  height: 35px;
 }
 .nav-logo:hover .nav-logo-img {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 24px;
   list-style: none;
 }
 .nav-links a {
-  font-family: 'Jost', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 400;
-  letter-spacing: 0.2em;
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.7);
+  color: #141414;
   text-decoration: none;
   position: relative;
-  transition: color 0.3s;
+  transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 6px 2px;
 }
 .nav-links a::after {
   content: '';
   position: absolute;
-  bottom: -3px; left: 0;
-  width: 0; height: 1px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
   background: var(--gold);
-  transition: width 0.3s ease;
+  border-radius: 2px;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .nav-links a:hover::after,
-.nav-links a.active::after { width: 100%; }
-.nav-links a:hover,
-.nav-links a.active { color: #fff; }
-#navbar.scrolled .nav-links a { color: var(--taupe); }
-#navbar.scrolled .nav-links a:hover,
-#navbar.scrolled .nav-links a.active { color: var(--gold); }
+.nav-links a.active::after {
+  width: 100%;
+}
+.nav-links a:hover {
+  color: var(--gold);
+}
+.nav-links a.active {
+  color: var(--gold);
+}
 
 .nav-cta {
-  font-family: 'Jost', sans-serif;
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
   font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FFFFFF !important;
+  background: linear-gradient(135deg, #C5A059 0%, #A88340 100%);
+  padding: 9px 20px;
+  border-radius: 999px;
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s;
+  box-shadow: 0 4px 14px rgba(184, 150, 90, 0.32);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
-.nav-cta:hover { border-bottom-color: var(--gold); }
+.nav-cta:hover {
+  background: linear-gradient(135deg, #D4AF6E 0%, #B8965A 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(184, 150, 90, 0.45);
+}
 
 .nav-hamburger {
   display: none;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
   cursor: pointer;
-  padding: 4px;
+  padding: 6px;
 }
 .nav-hamburger span {
   display: block;
-  width: 26px; height: 1px;
+  width: 22px;
+  height: 2px;
+  background: var(--charcoal);
+  transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+  border-radius: 2px;
+}
+.nav-hamburger:hover span {
   background: var(--gold);
-  transition: transform 0.3s, opacity 0.3s;
 }
 
 /* Mobile nav overlay */
@@ -267,26 +302,26 @@ body.cursor-hover #cursor-ring {
   align-items: flex-end;
   justify-content: flex-start;
   overflow: hidden;
-  padding: 0 6% 68px 6%;
+  padding: 0 6% 135px 6%;
 }
-.hero-bg {
+.hero-video-desktop {
   position: absolute;
   inset: 0;
-  background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1800&q=90');
-  background-size: cover;
-  background-position: center;
-  transform: scale(1.08);
-  transition: transform 8s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
 }
-.hero-bg.loaded { transform: scale(1.0); }
 .hero-video-mobile {
   display: none;
-}
-.hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.55) 45%, rgba(13,13,13,0.15) 100%),
-              linear-gradient(90deg, rgba(13,13,13,0.65) 0%, rgba(13,13,13,0.2) 65%, transparent 100%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
 }
 .hero-content {
   position: relative;
@@ -421,55 +456,75 @@ body.cursor-hover #cursor-ring {
   }
 }
 
-/* ── STATS ── */
+/* ── MILESTONES (STATS) ── */
 #stats {
-  background: var(--charcoal);
-  padding: 60px 6%;
-}
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  max-width: 1260px;
-  margin: 0 auto;
-}
-.stat-item {
-  text-align: center;
-  padding: 16px 24px;
   position: relative;
+  z-index: 20;
+  height: 0;
+  padding: 0 5%;
+  background: transparent;
 }
-.stat-item + .stat-item::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 15%; bottom: 15%;
-  width: 1px;
-  background: var(--stone);
-  opacity: 0.25;
+.milestones-wrap {
+  max-width: 780px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  transform: translateY(-50%);
 }
-.stat-number {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 3.5rem;
-  font-weight: 500;
-  color: var(--gold);
-  line-height: 1;
-  display: block;
-  margin-bottom: 8px;
+.milestones-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 245, 240, 0.97) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 26px;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.18), 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 24px 32px 26px;
+  text-align: center;
 }
-.stat-label {
-  font-family: 'Plus Jakarta Sans', 'Jost', sans-serif;
+.milestones-eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
+  font-weight: 700;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #B5ACA3;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+.milestones-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+.milestone-item {
+  text-align: center;
+}
+.milestone-num {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1.9rem, 2.7vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1;
+  color: #141414;
+  letter-spacing: -0.03em;
+  display: block;
+  margin-bottom: 6px;
+}
+.milestone-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #554D45;
+  text-transform: capitalize;
+  line-height: 1.35;
+  display: block;
 }
 
 /* ── SECTION COMMONS ── */
 .section-eyebrow {
-  font-family: 'Plus Jakarta Sans', 'Jost', sans-serif;
-  font-size: 0.7rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 14px;
@@ -477,9 +532,9 @@ body.cursor-hover #cursor-ring {
 }
 .section-heading {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.3rem, 4vw, 3.8rem);
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
   font-weight: 600;
-  line-height: 1.12;
+  line-height: 1.14;
   color: var(--charcoal);
   margin-bottom: 48px;
   letter-spacing: -0.01em;
@@ -529,8 +584,8 @@ body.cursor-hover #cursor-ring {
 
 /* ── ABOUT ── */
 #about {
-  background: var(--cream-dark);
-  padding: 105px 6%;
+  background: var(--off-white);
+  padding: 150px 6% 105px 6%;
   position: relative;
 }
 .about-inner {
@@ -615,7 +670,8 @@ body.cursor-hover #cursor-ring {
   z-index: 10;
 }
 
-/* ── SERVICES (MINIMALIST CREATIVE CARDS) ── */
+/* ── SERVICES (9 BESPOKE INTERIOR DESIGN CATEGORIES) ── */
+/* ── SERVICES (MINIMAL LUXURY 9-GRID) ── */
 #services {
   background: var(--warm-white);
   padding: 100px 6%;
@@ -624,117 +680,67 @@ body.cursor-hover #cursor-ring {
 .services-header {
   text-align: center;
   max-width: 680px;
-  margin: 0 auto 54px auto;
+  margin: 0 auto 50px auto;
 }
-.services-subtitle {
-  font-family: 'Jost', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 300;
-  color: var(--taupe);
-  line-height: 1.7;
-  margin-top: 12px;
-}
-.services-visual-grid {
+.services-grid-9 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  max-width: 1260px;
+  gap: 24px;
+  max-width: 1220px;
   margin: 0 auto;
 }
-.service-vcard {
-  position: relative;
+.service-item {
   background: #ffffff;
+  border: 1px solid rgba(216, 206, 191, 0.55);
   border-radius: 16px;
-  padding: 42px 34px;
-  border: 1px solid var(--stone);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  padding: 32px 28px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
-.service-vcard::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-.service-vcard:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(28, 28, 28, 0.06), 0 0 20px rgba(184, 150, 90, 0.06);
+.service-item:hover {
+  transform: translateY(-4px);
   border-color: var(--gold);
+  box-shadow: 0 14px 30px rgba(28, 28, 28, 0.05);
 }
-.service-vcard:hover::before {
-  opacity: 1;
-}
-.service-vcard-top {
+.service-item-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
-.service-vcard-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: rgba(184, 150, 90, 0.08);
-  border: 1px solid rgba(184, 150, 90, 0.22);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gold);
-  font-size: 1.3rem;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.service-vcard:hover .service-vcard-icon {
-  background: var(--gold);
-  color: #fff;
-  transform: scale(1.06);
-  box-shadow: 0 6px 18px rgba(184, 150, 90, 0.3);
-}
-.service-vcard-num {
+.service-num {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2.2rem;
-  font-weight: 300;
-  color: var(--stone);
-  line-height: 1;
-  transition: color 0.3s ease;
-}
-.service-vcard:hover .service-vcard-num {
-  color: var(--gold);
-}
-.service-vcard-pill {
-  font-family: 'Jost', sans-serif;
-  font-size: 0.65rem;
+  font-size: 1.35rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
   color: var(--gold);
-  text-transform: uppercase;
-  background: rgba(184, 150, 90, 0.08);
-  padding: 5px 12px;
-  border-radius: 16px;
-  display: inline-block;
-  margin-bottom: 16px;
-  align-self: flex-start;
-  border: 1px solid rgba(184, 150, 90, 0.18);
+  letter-spacing: 0.04em;
 }
-.service-vcard-title {
+.service-ico {
+  font-size: 1.15rem;
+  color: var(--taupe);
+  opacity: 0.55;
+  transition: color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+.service-item:hover .service-ico {
+  color: var(--gold);
+  opacity: 1;
+  transform: scale(1.1);
+}
+.service-name {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.75rem;
+  font-size: 1.55rem;
   font-weight: 600;
   color: var(--charcoal);
-  margin-bottom: 12px;
-  line-height: 1.2;
+  margin-bottom: 8px;
+  line-height: 1.25;
 }
-.service-vcard-desc {
+.service-scope {
   font-family: 'Plus Jakarta Sans', 'Jost', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 400;
-  line-height: 1.75;
   color: var(--taupe);
-  margin-bottom: 0;
+  line-height: 1.6;
 }
 
 /* ── PROJECTS / IMAGE PLACEHOLDERS ── */
@@ -819,87 +825,341 @@ body.cursor-hover #cursor-ring {
   transform: scale(1);
 }
 
-/* ── PROCESS ── */
+/* ── PREMIUM ANIMATED OUR PROCESS SECTION ── */
 #process {
-  background: var(--charcoal);
-  padding: 105px 6%;
+  background: #F9F6F0;
+  padding: 120px 5% 130px;
   position: relative;
   overflow: hidden;
 }
-#process .section-number-bg { color: var(--gold); opacity: 0.06; }
-#process .section-heading { color: #fff; }
-.process-sub {
+#process .section-number-bg {
+  color: var(--gold);
+  opacity: 0.05;
+}
+.process-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 54px;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#process.process-active .process-header {
+  opacity: 1;
+  transform: translateY(0);
+}
+.process-header .section-eyebrow {
+  margin-bottom: 8px;
+}
+.process-header .section-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+  line-height: 1.15;
+}
+.process-subheading {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.1rem;
-  color: var(--taupe);
-  margin-bottom: 72px;
-  margin-top: -32px;
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  font-weight: 400;
+  color: #6A6054;
+  line-height: 1.4;
 }
-.process-timeline {
+
+.process-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Markers Track */
+.process-markers-track {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  margin-bottom: 22px;
 }
-.process-line-track {
+.process-track-bg {
   position: absolute;
-  top: 26px; left: 10%;
-  right: 10%;
-  height: 1px;
-  background: rgba(212,201,187,0.2);
+  top: 50%;
+  left: 12.5%;
+  right: 12.5%;
+  height: 1.5px;
+  background: rgba(216, 206, 191, 0.55);
+  transform: translateY(-50%);
+  z-index: 1;
 }
-.process-line-fill {
-  height: 1px;
-  background: var(--gold);
+.process-track-fill {
+  position: absolute;
+  top: 50%;
+  left: 12.5%;
+  height: 2px;
+  background: linear-gradient(90deg, #C5A059 0%, #D4AF7A 100%);
   width: 0%;
-  transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+  transform: translateY(-50%);
+  z-index: 2;
+  transition: width 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
 }
-.process-step {
+#process.process-active .process-track-fill {
+  width: 75%;
+}
+
+.process-marker-node {
   position: relative;
-  padding: 0 16px;
-  padding-top: 60px;
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
 }
-.process-step.visible { opacity: 1; transform: translateY(0); }
-.process-dot {
-  position: absolute;
-  top: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 16px; height: 16px;
+.process-marker-circle {
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: var(--charcoal);
-  border: 2px solid var(--gold);
-}
-.step-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem;
-  font-weight: 300;
-  color: var(--gold);
+  background: #FFFFFF;
+  border: 1.5px solid rgba(216, 206, 191, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(28, 28, 28, 0.05);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(0.9);
   opacity: 0.6;
-  margin-bottom: 10px;
-  display: block;
 }
-.step-title {
-  font-family: 'Jost', sans-serif;
+.process-marker-circle .marker-num {
+  font-family: 'Outfit', sans-serif;
   font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #fff;
+  font-weight: 700;
+  color: var(--charcoal);
+  letter-spacing: 0.04em;
+  transition: color 0.4s ease;
+}
+#process.process-active .process-marker-node[data-step="1"] .process-marker-circle { transition-delay: 0.35s; }
+#process.process-active .process-marker-node[data-step="2"] .process-marker-circle { transition-delay: 0.65s; }
+#process.process-active .process-marker-node[data-step="3"] .process-marker-circle { transition-delay: 0.95s; }
+#process.process-active .process-marker-node[data-step="4"] .process-marker-circle { transition-delay: 1.25s; }
+
+#process.process-active .process-marker-circle {
+  border-color: var(--gold);
+  background: #FFFFFF;
+  box-shadow: 0 0 18px rgba(184, 150, 90, 0.3), 0 4px 14px rgba(28, 28, 28, 0.08);
+  transform: scale(1);
+  opacity: 1;
+}
+#process.process-active .process-marker-circle .marker-num {
+  color: var(--gold);
+}
+
+/* Four Process Boxes Grid */
+.process-boxes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 4;
+}
+.process-box {
+  background: #FFFFFF;
+  border: 1px solid rgba(216, 206, 191, 0.7);
+  border-top: 3px solid var(--gold);
+  border-radius: 16px;
+  padding: 30px 22px 32px;
+  box-shadow: 0 10px 28px rgba(28, 28, 28, 0.04);
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.process-box:hover {
+  transform: translateY(-4px) !important;
+  border-color: var(--gold);
+  box-shadow: 0 18px 40px rgba(184, 150, 90, 0.12);
+}
+#process.process-active #pbox-1 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.35s;
+}
+#process.process-active #pbox-2 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.65s;
+}
+#process.process-active #pbox-3 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.95s;
+}
+#process.process-active #pbox-4 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 1.25s;
+}
+
+.process-box-header {
   margin-bottom: 12px;
 }
-.step-desc {
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  font-size: 0.78rem;
-  line-height: 1.8;
-  color: var(--taupe);
+.process-box-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #141414;
+  display: block;
 }
-.process-cta { text-align: center; margin-top: 72px; }
+.process-box-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #5C544B;
+  margin: 0;
+}
+
+/* Convergence Connector Curved Lines */
+.process-convergence-wrap {
+  width: 100%;
+  height: 120px;
+  position: relative;
+  margin: 0 auto;
+  pointer-events: none;
+}
+.convergence-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+.convergence-line-base {
+  fill: none;
+  stroke: rgba(216, 206, 191, 0.4);
+  stroke-width: 1.5;
+}
+.convergence-line-draw {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.8;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#process.process-active .convergence-line-draw {
+  stroke-dashoffset: 0;
+  transition-delay: 1.55s;
+}
+
+/* Traveling Champagne-Gold Highlight */
+.convergence-line-shimmer {
+  fill: none;
+  stroke: url(#champagneGoldGrad);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-dasharray: 20 80;
+  stroke-dashoffset: 120;
+  opacity: 0;
+  filter: drop-shadow(0 0 6px rgba(184, 150, 90, 0.6));
+}
+#process.process-active .convergence-line-shimmer {
+  animation: travelShimmer 1.4s cubic-bezier(0.25, 1, 0.5, 1) 2.2s forwards;
+}
+@keyframes travelShimmer {
+  0% {
+    opacity: 0;
+    stroke-dashoffset: 110;
+  }
+  30% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -20;
+    opacity: 0;
+  }
+}
+
+/* Central Convergence Node */
+.convergence-node-pulse {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  opacity: 0;
+  transform-origin: 500px 120px;
+}
+#process.process-active .convergence-node-pulse {
+  animation: pulseNode 2s ease-out 2.5s infinite;
+}
+@keyframes pulseNode {
+  0% {
+    r: 4;
+    opacity: 0.8;
+  }
+  100% {
+    r: 16;
+    opacity: 0;
+  }
+}
+.convergence-node-dot {
+  fill: var(--gold);
+  opacity: 0;
+  transform-origin: 500px 120px;
+  transform: scale(0);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+#process.process-active .convergence-node-dot {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 2.3s;
+}
+
+/* Main Center Box */
+.process-main-box {
+  max-width: 660px;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);
+  border: 1.5px solid rgba(184, 150, 90, 0.45);
+  border-radius: 24px;
+  padding: 38px 44px 40px;
+  box-shadow: 0 16px 45px rgba(28, 28, 28, 0.07), 0 0 25px rgba(184, 150, 90, 0.1);
+  position: relative;
+  z-index: 5;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 2.5s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 2.5s;
+}
+#process.process-active .process-main-box {
+  opacity: 1;
+  transform: translateY(0);
+}
+.main-box-brand {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.main-box-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.2vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--charcoal);
+  margin-bottom: 12px;
+}
+.main-box-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.94rem;
+  font-weight: 400;
+  color: #5C544B;
+  line-height: 1.65;
+  margin: 0;
+}
 .btn-gold {
   font-family: 'Jost', sans-serif;
   font-size: 0.72rem;
@@ -919,6 +1179,58 @@ body.cursor-hover #cursor-ring {
   background: var(--off-white);
   padding: 100px 5%;
   position: relative;
+}
+.google-review-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid rgba(216, 206, 191, 0.65);
+  padding: 8px 20px;
+  border-radius: 30px;
+  margin-top: 18px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+.google-stars-gold {
+  color: #FBBC05;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+}
+.google-score-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--charcoal);
+}
+.google-map-link {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-left: 1px solid var(--stone);
+  padding-left: 12px;
+  transition: color 0.3s ease;
+}
+.google-map-link:hover {
+  color: var(--charcoal);
+}
+.testimonial-google-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #5f6368;
+  background: rgba(246, 243, 238, 0.85);
+  border: 1px solid rgba(216, 206, 191, 0.5);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 16px;
 }
 .testimonials-wrap { max-width: 860px; margin: 0 auto; }
 .testimonial-stage { position: relative; min-height: 260px; }
@@ -1339,28 +1651,27 @@ footer {
   color: rgba(255,255,255,0.25);
 }
 
-/* ── FLOATING CALL & WHATSAPP BUTTONS ── */
+/* ── FLOATING CALL BUTTON ── */
 #call-float {
   position: fixed;
-  bottom: 92px;
+  bottom: 28px;
   right: 28px;
   z-index: 7000;
-  background: #fff;
+  background: var(--charcoal);
   width: 50px; height: 50px;
   border-radius: 50%;
-  border: 1px solid var(--stone);
+  border: 1px solid var(--gold);
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  box-shadow: 0 4px 20px rgba(28,28,28,0.10);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
   transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, border-color 0.3s;
 }
 #call-float:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 28px rgba(28,28,28,0.18);
-  background: var(--charcoal);
-  border-color: var(--charcoal);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  background: var(--gold);
 }
 #call-float i {
   color: var(--gold);
@@ -1368,7 +1679,7 @@ footer {
   transition: color 0.3s;
 }
 #call-float:hover i {
-  color: #fff;
+  color: #141414;
 }
 #call-float::before {
   content: 'Call +91 86044 10750';
@@ -1384,42 +1695,10 @@ footer {
   opacity: 0;
   transition: opacity 0.3s;
   pointer-events: none;
+  border: 1px solid rgba(184, 150, 90, 0.3);
+  border-radius: 4px;
 }
 #call-float:hover::before { opacity: 1; }
-
-#wa-float {
-  position: fixed;
-  bottom: 32px;
-  right: 28px;
-  z-index: 7000;
-  background: #fff;
-  width: 50px; height: 50px;
-  border-radius: 50%;
-  border: 1px solid var(--stone);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  box-shadow: 0 4px 20px rgba(28,28,28,0.10);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-#wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(28,28,28,0.18); }
-#wa-float i { color: #25D366; font-size: 1.2rem; }
-#wa-float::before {
-  content: 'Chat with us';
-  position: absolute;
-  right: 60px;
-  background: var(--charcoal);
-  color: #fff;
-  font-family: 'Jost', sans-serif;
-  font-size: 0.68rem;
-  padding: 6px 12px;
-  white-space: nowrap;
-  opacity: 0;
-  transition: opacity 0.3s;
-  pointer-events: none;
-}
-#wa-float:hover::before { opacity: 1; }
 
 
 
@@ -1462,28 +1741,45 @@ footer {
 }
 
 @media (max-width: 1024px) {
-  .services-visual-grid { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; }
+  #hero { padding: 0 6% 120px 6%; }
+  .milestones-card { padding: 34px 28px 38px; }
+  #about { padding: 135px 6% 90px 6%; }
+  .services-grid-9 { grid-template-columns: repeat(2, 1fr); gap: 24px; }
   .projects-grid { grid-template-columns: repeat(2, 1fr); max-width: 800px; margin: 0 auto; }
   .footer-main { grid-template-columns: 1fr 1fr; }
   .footer-main > :first-child { grid-column: 1 / -1; }
+  .process-boxes-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .process-markers-track { display: none; }
+  .process-convergence-wrap { height: 80px; }
 }
 
 @media (max-width: 768px) {
   body { cursor: auto; }
   #cursor-dot, #cursor-ring { display: none; }
+  #navbar {
+    top: 12px;
+    width: calc(100% - 24px);
+    max-width: 480px;
+    padding: 6px 14px;
+    border-radius: 999px;
+  }
+  #navbar.scrolled {
+    top: 10px;
+    padding: 6px 14px;
+  }
   .nav-links, .nav-cta { display: none; }
   .nav-hamburger { display: flex; }
-  .nav-logo-img { height: 50px; }
+  .nav-logo-img { height: 32px; }
   #hero {
     height: 100vh;
     height: 100dvh;
-    min-height: 560px;
-    padding: 0 6% 36px 6%;
+    min-height: 580px;
+    padding: 0 6% 160px 6%;
     align-items: flex-end;
   }
-  .hero-bg { display: none !important; }
+  .hero-video-desktop { display: none !important; }
   .hero-video-mobile {
-    display: block;
+    display: block !important;
     position: absolute;
     inset: 0;
     width: 100%;
@@ -1492,55 +1788,134 @@ footer {
     object-position: center;
     z-index: 0;
   }
-  .hero-overlay {
-    background: linear-gradient(180deg, rgba(13, 13, 13, 0.45) 0%, transparent 28%, rgba(13, 13, 13, 0.2) 60%, rgba(13, 13, 13, 0.75) 100%);
+  #stats {
+    height: 0;
+    padding: 0 5%;
   }
-  .hero-content {
+  .milestones-wrap {
+    max-width: 440px;
+    width: calc(100% - 36px);
+    transform: translateY(-50%);
+  }
+  .milestones-card {
+    padding: 20px 16px 22px;
+    border-radius: 22px;
+  }
+  .milestones-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 16px;
+  }
+  .milestones-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 12px;
+  }
+  .milestone-num {
+    font-size: 1.85rem;
+    margin-bottom: 4px;
+  }
+  .milestone-label {
+    font-size: 0.72rem;
+  }
+  /* Mobile Stacking / Gathering Cards Animation in Services Section */
+  .services-grid-9 {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
     position: relative;
-    z-index: 2;
-    padding: 0;
-    text-align: left;
-    max-width: 100%;
+    padding-bottom: 28px;
   }
-  .hero-eyebrow,
-  .hero-sub,
-  .btn-ghost-hero {
-    display: none !important;
+  .services-grid-9 .service-item {
+    position: sticky;
+    background: #ffffff;
+    border: 1px solid rgba(216, 206, 191, 0.7);
+    border-top: 3px solid var(--gold);
+    border-radius: 18px;
+    padding: 26px 22px;
+    box-shadow: 0 -4px 18px rgba(20, 20, 20, 0.04), 0 12px 28px rgba(20, 20, 20, 0.08);
+    opacity: 1 !important;
+    transform: none !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  .hero-h1 {
-    font-size: clamp(1.85rem, 6.2vw, 2.35rem);
-    line-height: 1.14;
-    margin-bottom: 18px;
-    max-width: 90%;
-  }
-  .hero-btns { justify-content: flex-start; }
-  .stats-grid { grid-template-columns: 1fr; gap: 24px; }
-  .stat-item + .stat-item::before { display: none; }
-  .services-visual-grid { grid-template-columns: 1fr; }
+  .services-grid-9 .service-item:nth-child(1) { top: 74px; z-index: 1; }
+  .services-grid-9 .service-item:nth-child(2) { top: 86px; z-index: 2; }
+  .services-grid-9 .service-item:nth-child(3) { top: 98px; z-index: 3; }
+  .services-grid-9 .service-item:nth-child(4) { top: 110px; z-index: 4; }
+  .services-grid-9 .service-item:nth-child(5) { top: 122px; z-index: 5; }
+  .services-grid-9 .service-item:nth-child(6) { top: 134px; z-index: 6; }
+  .services-grid-9 .service-item:nth-child(7) { top: 146px; z-index: 7; }
+  .services-grid-9 .service-item:nth-child(8) { top: 158px; z-index: 8; }
+  .services-grid-9 .service-item:nth-child(9) { top: 170px; z-index: 9; }
   .projects-grid { grid-template-columns: 1fr; }
   .about-inner { grid-template-columns: 1fr; }
   .about-images { order: -1; height: 360px; }
   .about-img-main { width: 90%; height: 300px; }
   .about-img-small { width: 50%; height: 180px; }
-  .process-timeline { grid-template-columns: 1fr; }
-  .process-line-track { display: none; }
-  .process-step { padding-top: 20px; padding-bottom: 20px; border-left: 1px solid rgba(184,150,90,0.3); padding-left: 32px; margin-left: 20px; }
-  .process-dot { left: -9px; top: 22px; transform: none; }
+  #process { padding: 85px 5% 95px; }
+  .process-markers-track { display: none; }
+  .process-boxes-grid { grid-template-columns: 1fr; gap: 16px; }
+  .process-convergence-wrap { height: 70px; }
+  .process-main-box { padding: 28px 20px 30px; border-radius: 20px; }
+  .main-box-tagline { font-size: 1.85rem; }
   .materials-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-inner { grid-template-columns: 1fr; }
   .contact-inner > img { display: none; }
   .form-row { grid-template-columns: 1fr; }
   .footer-main { grid-template-columns: 1fr; gap: 40px; }
   .footer-main > :first-child { grid-column: auto; }
-  #call-float { bottom: 82px; }
-  #wa-float { bottom: 24px; }
+  #call-float { bottom: 22px; right: 20px; }
+  #about { padding: 165px 5% 70px 5%; }
 }
 
 @media (max-width: 480px) {
-  .stats-grid { grid-template-columns: 1fr; }
+  #navbar {
+    top: 10px;
+    width: calc(100% - 20px);
+    padding: 5px 12px;
+    border-radius: 999px;
+  }
+  .nav-logo-img { height: 28px; }
+  #hero {
+    padding: 0 6% 160px 6%;
+  }
+  .milestones-wrap {
+    max-width: 360px;
+    width: calc(100% - 28px);
+  }
+  .milestones-card {
+    padding: 18px 12px 20px;
+    border-radius: 20px;
+  }
+  .milestones-grid {
+    gap: 14px 10px;
+  }
+  .milestone-num {
+    font-size: 1.65rem;
+  }
+  .milestone-label {
+    font-size: 0.68rem;
+  }
+  .services-grid-9 {
+    gap: 18px;
+  }
+  .services-grid-9 .service-item {
+    padding: 22px 18px;
+  }
+  .services-grid-9 .service-item:nth-child(1) { top: 70px; }
+  .services-grid-9 .service-item:nth-child(2) { top: 80px; }
+  .services-grid-9 .service-item:nth-child(3) { top: 90px; }
+  .services-grid-9 .service-item:nth-child(4) { top: 100px; }
+  .services-grid-9 .service-item:nth-child(5) { top: 110px; }
+  .services-grid-9 .service-item:nth-child(6) { top: 120px; }
+  .services-grid-9 .service-item:nth-child(7) { top: 130px; }
+  .services-grid-9 .service-item:nth-child(8) { top: 140px; }
+  .services-grid-9 .service-item:nth-child(9) { top: 150px; }
+  .service-name {
+    font-size: 1.35rem;
+  }
   .cta-btns { flex-direction: column; align-items: center; }
   .testimonial-controls { flex-direction: column; }
-  #about { padding: 70px 5%; }
+  #about { padding: 165px 5% 65px 5%; }
 }
 </style>
 </head>
@@ -1601,36 +1976,37 @@ footer {
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-bg" id="hero-bg"></div>
+  <video class="hero-video-desktop" id="hero-video-desktop" autoplay muted loop playsinline webkit-playsinline preload="auto">
+    <source src="assets/Hero/hero_laptop_5mb.webm" type="video/webm">
+  </video>
   <video class="hero-video-mobile" id="hero-video-mobile" autoplay muted loop playsinline webkit-playsinline preload="auto">
     <source src="assets/Hero/Hero.webm" type="video/webm">
   </video>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <span class="hero-eyebrow" id="h-ey">Interior Designer</span>
-    <h1 class="hero-h1" id="h-title">Your complete design solution, all in one</h1>
-    <p class="hero-sub" id="h-sub">Complete interior design solutions for modern living</p>
-    <div class="hero-btns" id="h-btns">
-      <a href="#contact" class="btn-primary-hero">Get a Quote →</a>
-      <a href="#services" class="btn-ghost-hero">Explore Services ↓</a>
-    </div>
-  </div>
 </section>
 
-<!-- STATS RIBBON -->
+<!-- MILESTONES (STATS) -->
 <section id="stats">
-  <div class="stats-grid">
-    <div class="stat-item reveal">
-      <span class="stat-number" data-target="1" data-pad="2">01</span>
-      <span class="stat-label">Current Project</span>
-    </div>
-    <div class="stat-item reveal" style="transition-delay:0.1s">
-      <span class="stat-number" data-target="10">10</span>
-      <span class="stat-label">Homes Renovated</span>
-    </div>
-    <div class="stat-item reveal" style="transition-delay:0.2s">
-      <span class="stat-number" data-target="6" data-pad="2">06</span>
-      <span class="stat-label">Valued Partners</span>
+  <div class="milestones-wrap">
+    <div class="milestones-card">
+      <div class="milestones-eyebrow">Milestones That Define Us</div>
+      <div class="milestones-grid">
+        <div class="milestone-item">
+          <span class="stat-number milestone-num" data-target="35" data-suffix="+">35+</span>
+          <span class="milestone-label">Homes Transformed</span>
+        </div>
+        <div class="milestone-item">
+          <span class="stat-number milestone-num" data-target="100" data-suffix="%">100%</span>
+          <span class="milestone-label">Custom Design</span>
+        </div>
+        <div class="milestone-item">
+          <span class="stat-number milestone-num" data-target="25" data-suffix="+">25+</span>
+          <span class="milestone-label">Skilled Artisans</span>
+        </div>
+        <div class="milestone-item">
+          <span class="stat-number milestone-num" data-target="15" data-suffix="+">15+</span>
+          <span class="milestone-label">Partner Brands</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1668,53 +2044,103 @@ footer {
   </div>
 </section>
 
-<!-- SERVICES (3 CLEAN MINIMALIST CARDS) -->
+<!-- SERVICES -->
 <section id="services">
   <div class="section-number-bg">02</div>
   <div class="services-header reveal">
-    <span class="section-eyebrow">— Confirmed Services</span>
-    <h2 class="section-heading">Our Specialized Services</h2>
-    <p class="services-subtitle">Thoughtfully planned, beautifully crafted spaces tailored for modern Jhansi living.</p>
+    <span class="section-eyebrow">— What We Do</span>
+    <h2 class="section-heading">Interior Design Services</h2>
   </div>
 
-  <div class="services-visual-grid">
-    <!-- Card 1: Kitchen Remodeling -->
-    <div class="service-vcard reveal">
-      <div class="service-vcard-top">
-        <div class="service-vcard-icon">
-          <i class="fa-solid fa-kitchen-set"></i>
-        </div>
-        <span class="service-vcard-num">01</span>
+  <div class="services-grid-9">
+    <!-- 01: Interior Design -->
+    <div class="service-item reveal">
+      <div class="service-item-head">
+        <span class="service-num">01</span>
+        <i class="fa-solid fa-compass-drafting service-ico"></i>
       </div>
-      <span class="service-vcard-pill">Modular · Ergonomic · Storage-Smart</span>
-      <h3 class="service-vcard-title">Kitchen Remodeling</h3>
-      <p class="service-vcard-desc">Functional, ergonomic, and aesthetic modular kitchens customized for modern living, intelligent storage, and smart culinary workflows.</p>
+      <h3 class="service-name">Interior Design</h3>
+      <p class="service-scope">Concept, layouts, materials and finishes</p>
     </div>
 
-    <!-- Card 2: Bathroom Remodeling -->
-    <div class="service-vcard reveal" style="transition-delay:0.1s">
-      <div class="service-vcard-top">
-        <div class="service-vcard-icon">
-          <i class="fa-solid fa-bath"></i>
-        </div>
-        <span class="service-vcard-num">02</span>
+    <!-- 02: Turnkey Interiors -->
+    <div class="service-item reveal" style="transition-delay:0.06s">
+      <div class="service-item-head">
+        <span class="service-num">02</span>
+        <i class="fa-solid fa-key service-ico"></i>
       </div>
-      <span class="service-vcard-pill">Modern · Luxury Finishes · Waterproofing</span>
-      <h3 class="service-vcard-title">Bathroom Remodeling</h3>
-      <p class="service-vcard-desc">Transformative bathroom renovations combining luxury finishes, premium sanitaryware, moisture resistance, and optimal space utilization.</p>
+      <h3 class="service-name">Turnkey Interiors</h3>
+      <p class="service-scope">Design, procurement and execution</p>
     </div>
 
-    <!-- Card 3: Home Additions -->
-    <div class="service-vcard reveal" style="transition-delay:0.2s">
-      <div class="service-vcard-top">
-        <div class="service-vcard-icon">
-          <i class="fa-solid fa-shapes"></i>
-        </div>
-        <span class="service-vcard-num">03</span>
+    <!-- 03: Space Planning -->
+    <div class="service-item reveal" style="transition-delay:0.12s">
+      <div class="service-item-head">
+        <span class="service-num">03</span>
+        <i class="fa-solid fa-vector-square service-ico"></i>
       </div>
-      <span class="service-vcard-pill">Space Expansion · Structural Design</span>
-      <h3 class="service-vcard-title">Home Additions</h3>
-      <p class="service-vcard-desc">Expanding your living footprint with seamless structural additions, extra rooms, floor extensions, and modern functional living spaces.</p>
+      <h3 class="service-name">Space Planning</h3>
+      <p class="service-scope">Furniture layouts and circulation</p>
+    </div>
+
+    <!-- 04: Modular Solutions -->
+    <div class="service-item reveal">
+      <div class="service-item-head">
+        <span class="service-num">04</span>
+        <i class="fa-solid fa-kitchen-set service-ico"></i>
+      </div>
+      <h3 class="service-name">Modular Solutions</h3>
+      <p class="service-scope">Kitchens, wardrobes and storage</p>
+    </div>
+
+    <!-- 05: Custom Furniture -->
+    <div class="service-item reveal" style="transition-delay:0.06s">
+      <div class="service-item-head">
+        <span class="service-num">05</span>
+        <i class="fa-solid fa-couch service-ico"></i>
+      </div>
+      <h3 class="service-name">Custom Furniture</h3>
+      <p class="service-scope">Beds, TV units, cabinets and furniture</p>
+    </div>
+
+    <!-- 06: Renovation -->
+    <div class="service-item reveal" style="transition-delay:0.12s">
+      <div class="service-item-head">
+        <span class="service-num">06</span>
+        <i class="fa-solid fa-arrows-rotate service-ico"></i>
+      </div>
+      <h3 class="service-name">Renovation</h3>
+      <p class="service-scope">Home and commercial renovation</p>
+    </div>
+
+    <!-- 07: Working Drawings -->
+    <div class="service-item reveal">
+      <div class="service-item-head">
+        <span class="service-num">07</span>
+        <i class="fa-solid fa-ruler-combined service-ico"></i>
+      </div>
+      <h3 class="service-name">Working Drawings</h3>
+      <p class="service-scope">Furniture, ceiling, electrical and flooring drawings</p>
+    </div>
+
+    <!-- 08: 3D Design & Rendering -->
+    <div class="service-item reveal" style="transition-delay:0.06s">
+      <div class="service-item-head">
+        <span class="service-num">08</span>
+        <i class="fa-solid fa-cube service-ico"></i>
+      </div>
+      <h3 class="service-name">3D Design & Rendering</h3>
+      <p class="service-scope">Photorealistic renders and walkthroughs</p>
+    </div>
+
+    <!-- 09: Project Management -->
+    <div class="service-item reveal" style="transition-delay:0.12s">
+      <div class="service-item-head">
+        <span class="service-num">09</span>
+        <i class="fa-solid fa-clipboard-check service-ico"></i>
+      </div>
+      <h3 class="service-name">Project Management</h3>
+      <p class="service-scope">Site coordination, quality and execution supervision</p>
     </div>
   </div>
 </section>
@@ -1779,90 +2205,216 @@ footer {
   </div>
 </section>
 
-<!-- PROCESS -->
+<!-- OUR PROCESS (PREMIUM ANIMATED CONVERGENCE) -->
 <section id="process">
   <div class="section-number-bg">04</div>
-  <div style="text-align:center; margin-bottom: 16px;" class="reveal">
-    <span class="section-eyebrow" style="color:var(--gold)">— How We Work</span>
-    <h2 class="section-heading">Our Process</h2>
+  
+  <div class="process-header">
+    <span class="section-eyebrow">— How We Work</span>
+    <h2 class="section-heading">OUR PROCESS</h2>
+    <p class="process-subheading">From First Ideas to Finished Spaces</p>
   </div>
-  <p class="process-sub reveal" style="text-align:center; transition-delay:0.1s">A clear, collaborative process — no surprises, just results.</p>
-  <div class="process-timeline" id="process-timeline">
-    <div class="process-line-track"><div class="process-line-fill" id="process-line"></div></div>
-    <div class="process-step" style="transition-delay:0s">
-      <div class="process-dot"></div>
-      <span class="step-num">01</span>
-      <div class="step-title">Discovery Call</div>
-      <p class="step-desc">We listen. Tell us about your space, your vision, and your budget. Free consultation.</p>
+
+  <div class="process-wrap">
+    <!-- Top Horizontal Progress Track & Numbered Markers -->
+    <div class="process-markers-track">
+      <div class="process-track-bg"></div>
+      <div class="process-track-fill" id="process-track-fill"></div>
+      
+      <div class="process-marker-node" data-step="1">
+        <div class="process-marker-circle">
+          <span class="marker-num">01</span>
+        </div>
+      </div>
+      <div class="process-marker-node" data-step="2">
+        <div class="process-marker-circle">
+          <span class="marker-num">02</span>
+        </div>
+      </div>
+      <div class="process-marker-node" data-step="3">
+        <div class="process-marker-circle">
+          <span class="marker-num">03</span>
+        </div>
+      </div>
+      <div class="process-marker-node" data-step="4">
+        <div class="process-marker-circle">
+          <span class="marker-num">04</span>
+        </div>
+      </div>
     </div>
-    <div class="process-step" style="transition-delay:0.15s">
-      <div class="process-dot"></div>
-      <span class="step-num">02</span>
-      <div class="step-title">Concept Design</div>
-      <p class="step-desc">Mood boards, space plans, and 3D visualisations so you can see it before we build it.</p>
+
+    <!-- Four Equal Rectangular Process Boxes (Horizontal Row) -->
+    <div class="process-boxes-grid">
+      <!-- 01 DISCOVER -->
+      <div class="process-box" id="pbox-1">
+        <div class="process-box-header">
+          <span class="process-box-title">01 — DISCOVER</span>
+        </div>
+        <p class="process-box-desc">Understanding your vision, lifestyle, needs, and budget.</p>
+      </div>
+
+      <!-- 02 DESIGN -->
+      <div class="process-box" id="pbox-2">
+        <div class="process-box-header">
+          <span class="process-box-title">02 — DESIGN</span>
+        </div>
+        <p class="process-box-desc">Creating layouts, mood boards, and interior concepts.</p>
+      </div>
+
+      <!-- 03 DEVELOP -->
+      <div class="process-box" id="pbox-3">
+        <div class="process-box-header">
+          <span class="process-box-title">03 — DEVELOP</span>
+        </div>
+        <p class="process-box-desc">Refining materials, finishes, lighting, and every detail.</p>
+      </div>
+
+      <!-- 04 DELIVER -->
+      <div class="process-box" id="pbox-4">
+        <div class="process-box-header">
+          <span class="process-box-title">04 — DELIVER</span>
+        </div>
+        <p class="process-box-desc">Bringing your dream space to life with precision.</p>
+      </div>
     </div>
-    <div class="process-step" style="transition-delay:0.3s">
-      <div class="process-dot"></div>
-      <span class="step-num">03</span>
-      <div class="step-title">Design Approval</div>
-      <p class="step-desc">We refine until you love it. We don't move forward until you're 100% confident.</p>
+
+    <!-- Four Curved Connector Lines Emerging to Central Convergence Point (SVG) -->
+    <div class="process-convergence-wrap">
+      <svg class="convergence-svg" viewBox="0 0 1000 120" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="champagneGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#E5D3B3" />
+            <stop offset="40%" stop-color="#C5A059" />
+            <stop offset="100%" stop-color="#B8965A" />
+          </linearGradient>
+        </defs>
+
+        <!-- Base Guide Curves -->
+        <path class="convergence-line-base" d="M 125,0 C 125,65 440,90 500,120" />
+        <path class="convergence-line-base" d="M 375,0 C 375,50 470,85 500,120" />
+        <path class="convergence-line-base" d="M 625,0 C 625,50 530,85 500,120" />
+        <path class="convergence-line-base" d="M 875,0 C 875,65 560,90 500,120" />
+
+        <!-- Animated Drawing Curves -->
+        <path class="convergence-line-draw" pathLength="100" d="M 125,0 C 125,65 440,90 500,120" />
+        <path class="convergence-line-draw" pathLength="100" d="M 375,0 C 375,50 470,85 500,120" />
+        <path class="convergence-line-draw" pathLength="100" d="M 625,0 C 625,50 530,85 500,120" />
+        <path class="convergence-line-draw" pathLength="100" d="M 875,0 C 875,65 560,90 500,120" />
+
+        <!-- Traveling Champagne-Gold Highlight Shimmer -->
+        <path class="convergence-line-shimmer" pathLength="100" d="M 125,0 C 125,65 440,90 500,120" />
+        <path class="convergence-line-shimmer" pathLength="100" d="M 375,0 C 375,50 470,85 500,120" />
+        <path class="convergence-line-shimmer" pathLength="100" d="M 625,0 C 625,50 530,85 500,120" />
+        <path class="convergence-line-shimmer" pathLength="100" d="M 875,0 C 875,65 560,90 500,120" />
+
+        <!-- Shared Central Convergence Node -->
+        <circle class="convergence-node-pulse" cx="500" cy="120" r="8" />
+        <circle class="convergence-node-dot" cx="500" cy="120" r="4.5" />
+      </svg>
     </div>
-    <div class="process-step" style="transition-delay:0.45s">
-      <div class="process-dot"></div>
-      <span class="step-num">04</span>
-      <div class="step-title">Execution</div>
-      <p class="step-desc">Trusted vendors and contractors execute the design with precision. We supervise every detail on-site.</p>
+
+    <!-- Main Center Box Beneath Convergence Point -->
+    <div class="process-main-box" id="process-main-box">
+      <div class="main-box-brand">QLAKAARI INTERIORS</div>
+      <h3 class="main-box-tagline">Your Vision. Our Craft.</h3>
+      <p class="main-box-desc">Thoughtfully designed spaces, beautifully brought to life.</p>
     </div>
-    <div class="process-step" style="transition-delay:0.6s">
-      <div class="process-dot"></div>
-      <span class="step-num">05</span>
-      <div class="step-title">Reveal & Handover</div>
-      <p class="step-desc">We hand over your transformed space — styled, complete, and ready to live in.</p>
-    </div>
-  </div>
-  <div class="process-cta reveal" style="transition-delay:0.2s">
-    <a href="#contact" class="btn-gold">Get a Quote →</a>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
+<!-- TESTIMONIALS (GOOGLE REVIEWS) -->
 <section id="testimonials">
-  <div style="text-align:center; margin-bottom: 60px;" class="reveal">
-    <span class="section-eyebrow">— Client Focus</span>
+  <div style="text-align:center; margin-bottom: 50px;" class="reveal">
+    <span class="section-eyebrow">— Client Stories</span>
     <h2 class="section-heading" style="margin-bottom:0">What Our Clients Say</h2>
+    <div class="google-review-badge">
+      <div class="google-g-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+      </div>
+      <div class="google-stars-gold">★★★★★</div>
+      <span class="google-score-text">5.0 / 5.0</span>
+      <a href="https://maps.app.goo.gl/7RzPxSbA8v5B6DDb9" target="_blank" rel="noopener noreferrer" class="google-map-link">
+        Google Reviews <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+    </div>
   </div>
   <div class="testimonials-wrap reveal" style="transition-delay:0.1s">
     <div class="testimonial-stage" id="test-stage">
+      <!-- Review 1 -->
       <div class="testimonial active" data-index="0">
+        <span class="testimonial-google-tag"><i class="fab fa-google" style="color:#4285F4"></i> Verified Google Review</span>
         <div class="testimonial-stars">★★★★★</div>
-        <blockquote class="testimonial-quote">"Qlakaari Interior completely transformed our modular kitchen. The ergonomics, storage solutions, and budget transparency made the entire remodeling journey effortless and rewarding."</blockquote>
-        <div class="testimonial-author"><strong>Rohan & Meera Sharma</strong>Kitchen Remodel · Shivaji Nagar, Jhansi</div>
+        <blockquote class="testimonial-quote">"Qlakaari Interior completely transformed our 3BHK home into a warm, modern sanctuary. The modular kitchen layout, ambient lighting, and bespoke joinery were executed flawlessly. Truly the finest interior designers in Jhansi."</blockquote>
+        <div class="testimonial-author"><strong>Rohan & Meera Sharma</strong>Shivaji Nagar, Jhansi</div>
       </div>
+      <!-- Review 2 -->
       <div class="testimonial" data-index="1">
+        <span class="testimonial-google-tag"><i class="fab fa-google" style="color:#4285F4"></i> Verified Google Review</span>
         <div class="testimonial-stars">★★★★★</div>
-        <blockquote class="testimonial-quote">"We hired Qlakaari Interior for our master bathroom renovation. The finishes, marble vanity detailing, and waterproofing execution were top notch. Outstanding professionalism."</blockquote>
-        <div class="testimonial-author"><strong>Sanjay Agarwal</strong>Bathroom Remodel · Civil Lines, Jhansi</div>
+        <blockquote class="testimonial-quote">"Highly impressed with their architectural professionalism. They managed everything from 3D renders to site execution without any delays. The custom teak veneer work and false ceiling detailing exceeded our expectations."</blockquote>
+        <div class="testimonial-author"><strong>Dr. Sanjay Agarwal</strong>Civil Lines, Jhansi</div>
       </div>
+      <!-- Review 3 -->
       <div class="testimonial" data-index="2">
+        <span class="testimonial-google-tag"><i class="fab fa-google" style="color:#4285F4"></i> Verified Google Review</span>
         <div class="testimonial-stars">★★★★★</div>
-        <blockquote class="testimonial-quote">"Their design team understands how to balance aesthetic beauty with practical living. The home addition they executed blended seamlessly into our existing layout."</blockquote>
-        <div class="testimonial-author"><strong>Anita Verma</strong>Home Addition · Sipri Bazar, Jhansi</div>
+        <blockquote class="testimonial-quote">"We hired Qlakaari for our complete home renovation. Their attention to Indian craftsmanship blended with minimalist aesthetics gave our ancestral house a stunning contemporary feel. Highly recommended!"</blockquote>
+        <div class="testimonial-author"><strong>Anita Verma</strong>Sipri Bazar, Jhansi</div>
       </div>
+      <!-- Review 4 -->
       <div class="testimonial" data-index="3">
+        <span class="testimonial-google-tag"><i class="fab fa-google" style="color:#4285F4"></i> Verified Google Review</span>
         <div class="testimonial-stars">★★★★★</div>
-        <blockquote class="testimonial-quote">"From concept sketches to the final reveal, Qlakaari proved why they are so trusted in Jhansi. Thoughtful design, attentive listening, and punctual delivery."</blockquote>
-        <div class="testimonial-author"><strong>Vikram & Pooja Gupta</strong>Residential Client · Sadar Bazar, Jhansi</div>
+        <blockquote class="testimonial-quote">"Exceptional turnkey execution. We handed over a bare brick apartment and received a magazine-worthy home ready to move in. Transparent budgeting and daily site supervision gave us total peace of mind."</blockquote>
+        <div class="testimonial-author"><strong>Vikram & Pooja Gupta</strong>Sadar Bazar, Jhansi</div>
       </div>
+      <!-- Review 5 -->
       <div class="testimonial" data-index="4">
+        <span class="testimonial-google-tag"><i class="fab fa-google" style="color:#4285F4"></i> Verified Google Review</span>
         <div class="testimonial-stars">★★★★★</div>
-        <blockquote class="testimonial-quote">"Creative, practical, and highly responsive. Qlakaari Interior delivered exceptional design value without pushing unnecessary costs. Highly recommended!"</blockquote>
-        <div class="testimonial-author"><strong>Deepak Malhotra</strong>Remodel Client · Shivaji Nagar, Jhansi</div>
+        <blockquote class="testimonial-quote">"The modular kitchen and wardrobe solutions designed by Qlakaari are top quality. Premium hardware, smooth soft-close finishes, and smart space planning made our compact kitchen look spacious."</blockquote>
+        <div class="testimonial-author"><strong>Deepak Malhotra</strong>Shivaji Nagar, Jhansi</div>
+      </div>
+      <!-- Review 6 -->
+      <div class="testimonial" data-index="5">
+        <span class="testimonial-google-tag"><i class="fab fa-google" style="color:#4285F4"></i> Verified Google Review</span>
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote class="testimonial-quote">"What sets Qlakaari apart is their patience in listening and crafting spaces that feel personal. Their 3D walkthroughs matched the actual finished space down to the millimeter. Outstanding team!"</blockquote>
+        <div class="testimonial-author"><strong>Priya & Amit Srivastava</strong>Medical College Road, Jhansi</div>
+      </div>
+      <!-- Review 7 -->
+      <div class="testimonial" data-index="6">
+        <span class="testimonial-google-tag"><i class="fab fa-google" style="color:#4285F4"></i> Verified Google Review</span>
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote class="testimonial-quote">"They designed our corporate studio office in Jhansi. Space circulation, modern acoustic wall panels, and bespoke executive desks were delivered right on schedule. Superb work ethic and design sense."</blockquote>
+        <div class="testimonial-author"><strong>Rajesh Patel</strong>Elite Crossing, Jhansi</div>
+      </div>
+      <!-- Review 8 -->
+      <div class="testimonial" data-index="7">
+        <span class="testimonial-google-tag"><i class="fab fa-google" style="color:#4285F4"></i> Verified Google Review</span>
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote class="testimonial-quote">"From flooring and false ceiling drawings to custom furniture fabrication, Qlakaari’s artisans are truly skilled craftsmen. Our living room feels luxurious, serene, and uniquely ours."</blockquote>
+        <div class="testimonial-author"><strong>Sunita Bundela</strong>Cantt Area, Jhansi</div>
+      </div>
+      <!-- Review 9 -->
+      <div class="testimonial" data-index="8">
+        <span class="testimonial-google-tag"><i class="fab fa-google" style="color:#4285F4"></i> Verified Google Review</span>
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote class="testimonial-quote">"Best decision we made for our villa interiors. Their choice of materials, subtle Italian marble accents, and custom bedroom headboards gave our home a five-star hotel elegance."</blockquote>
+        <div class="testimonial-author"><strong>Gaurav & Neha Jain</strong>Kanpur Road, Jhansi</div>
+      </div>
+      <!-- Review 10 -->
+      <div class="testimonial" data-index="9">
+        <span class="testimonial-google-tag"><i class="fab fa-google" style="color:#4285F4"></i> Verified Google Review</span>
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote class="testimonial-quote">"Very professional, responsive, and honest with timelines. The team supervised every contractor and carpenter on site diligently. If you want hassle-free luxury interiors in Jhansi, go with Qlakaari."</blockquote>
+        <div class="testimonial-author"><strong>Alok Dubey</strong>Prem Nagar, Jhansi</div>
       </div>
     </div>
     <div class="testimonial-controls">
-      <button class="test-arrow" id="test-prev"><i class="fa fa-arrow-left"></i></button>
+      <button class="test-arrow" id="test-prev" aria-label="Previous review"><i class="fa fa-arrow-left"></i></button>
       <div class="test-dots" id="test-dots"></div>
-      <button class="test-arrow" id="test-next"><i class="fa fa-arrow-right"></i></button>
+      <button class="test-arrow" id="test-next" aria-label="Next review"><i class="fa fa-arrow-right"></i></button>
     </div>
   </div>
 </section>
@@ -2029,9 +2581,8 @@ footer {
   </div>
 </footer>
 
-<!-- FLOATING CALL & WHATSAPP BUTTONS -->
+<!-- FLOATING CALL BUTTON -->
 <a href="tel:+918604410750" id="call-float" title="Call Us"><i class="fa fa-phone"></i></a>
-<a href="https://wa.me/918604410750" id="wa-float" target="_blank" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
 <script>
 // ── INTRO ANIMATION ──
@@ -2057,26 +2608,10 @@ footer {
 })();
 
 function startHeroAnim() {
-  const items = [
-    { el: document.getElementById('h-ey'), delay: 0 },
-    { el: document.getElementById('h-title'), delay: 180 },
-    { el: document.getElementById('h-sub'), delay: 420 },
-    { el: document.getElementById('h-btns'), delay: 650 },
-  ];
-  items.forEach(({ el, delay }) => {
-    if (!el) return;
-    setTimeout(() => { el.classList.add('hero-animate'); }, delay);
-  });
-  // Hero bg subtle zoom & mobile video play
-  setTimeout(() => {
-    const bg = document.getElementById('hero-bg');
-    if (bg) bg.classList.add('loaded');
-    const mobVideo = document.getElementById('hero-video-mobile');
-    if (mobVideo) {
-      mobVideo.muted = true;
-      mobVideo.play().catch(() => {});
-    }
-  }, 100);
+  const dVid = document.getElementById('hero-video-desktop');
+  if (dVid) { dVid.muted = true; dVid.play().catch(() => {}); }
+  const mobVideo = document.getElementById('hero-video-mobile');
+  if (mobVideo) { mobVideo.muted = true; mobVideo.play().catch(() => {}); }
 }
 
 // ── CURSOR ──
@@ -2096,7 +2631,7 @@ function animateRing() {
   requestAnimationFrame(animateRing);
 }
 animateRing();
-document.querySelectorAll('a, button, .service-vcard, .project-placeholder, .material-item').forEach(el => {
+document.querySelectorAll('a, button, .service-item, .project-placeholder, .material-item').forEach(el => {
   el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
   el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
 });
@@ -2190,22 +2725,21 @@ const statsObserver = new IntersectionObserver((entries) => {
       statsObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.4 });
-const statsSection = document.getElementById('stats');
-if (statsSection) statsObserver.observe(statsSection);
+}, { threshold: 0.1 });
+const statsCard = document.querySelector('.milestones-card');
+if (statsCard) statsObserver.observe(statsCard);
 
-// ── PROCESS TIMELINE ──
+// ── PROCESS ANIMATION OBSERVER ──
 const processObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      document.querySelectorAll('.process-step').forEach(s => s.classList.add('visible'));
-      const line = document.getElementById('process-line');
-      if (line) line.style.width = '100%';
+      const pSection = document.getElementById('process');
+      if (pSection) pSection.classList.add('process-active');
       processObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.25 });
-const procSection = document.getElementById('process-timeline');
+}, { threshold: 0.2 });
+const procSection = document.getElementById('process');
 if (procSection) processObserver.observe(procSection);
 
 // ── TESTIMONIALS ──
@@ -2280,16 +2814,18 @@ function submitForm() {
   window.open(`https://wa.me/918604410750?text=${text}`, '_blank');
 }
 
-// ── HERO PARALLAX ──
-window.addEventListener('scroll', () => {
-  const heroEl = document.getElementById('hero');
-  if (!heroEl) return;
-  const scrolled = window.scrollY;
-  const bg = document.getElementById('hero-bg');
-  if (bg && scrolled < window.innerHeight) {
-    bg.style.transform = `translateY(${scrolled * 0.3}px)`;
-  }
-});
+// ── HERO VIDEO PLAYBACK ──
+function initHeroVideos() {
+  const dVid = document.getElementById('hero-video-desktop');
+  const mVid = document.getElementById('hero-video-mobile');
+  if (dVid) { dVid.play().catch(() => {}); }
+  if (mVid) { mVid.play().catch(() => {}); }
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initHeroVideos);
+} else {
+  initHeroVideos();
+}
 </script>
 </body>
 </html>
