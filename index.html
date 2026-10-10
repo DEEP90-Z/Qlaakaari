@@ -1,0 +1,2309 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaarigari Interior — Complete Interior Design Solutions, Gurgaon</title>
+<link rel="icon" type="image/webp" href="assets/logos/favicon.webp">
+<link rel="apple-touch-icon" href="assets/logos/favicon.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --off-white: #F6F3EE;
+  --warm-white: #FAF8F5;
+  --charcoal: #141414;
+  --dark: #0D0D0D;
+  --taupe: #4E463E;
+  --gold: #B8965A;
+  --gold-light: #D4AF7A;
+  --stone: #D8CEBF;
+  --cream-dark: #EAE4DC;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+section {
+  scroll-margin-top: 80px;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Jost', sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  background: var(--off-white);
+  color: var(--charcoal);
+  overflow-x: hidden;
+  cursor: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── CUSTOM CURSOR ── */
+#cursor-dot {
+  position: fixed;
+  width: 6px; height: 6px;
+  background: var(--charcoal);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+}
+#cursor-ring {
+  position: fixed;
+  width: 32px; height: 32px;
+  border: 1px solid rgba(28,28,28,0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.35s ease, height 0.35s ease, border-color 0.35s ease;
+}
+body.cursor-hover #cursor-ring {
+  width: 52px; height: 52px;
+  border-color: var(--gold);
+}
+
+/* ── SCROLL PROGRESS ── */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--gold);
+  z-index: 10000;
+  transition: width 0.05s linear;
+}
+
+/* ── INTRO OVERLAY ── */
+#intro {
+  position: fixed;
+  inset: 0;
+  background: var(--dark);
+  z-index: 9000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+#intro-line {
+  width: 0%;
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 40px;
+  animation: drawLine 0.8s cubic-bezier(0.76, 0, 0.24, 1) 0.8s forwards;
+}
+@keyframes drawLine { to { width: 60%; } }
+
+#intro-logo {
+  max-width: 480px;
+  width: 85%;
+  height: auto;
+  object-fit: contain;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s forwards;
+}
+#intro-tag {
+  font-family: 'Jost', sans-serif;
+  font-weight: 100;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-top: 18px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 2.0s forwards;
+  text-transform: uppercase;
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+#intro.slide-up {
+  animation: slideUp 0.9s cubic-bezier(0.76, 0, 0.24, 1) 2.4s forwards;
+}
+@keyframes slideUp { to { transform: translateY(-100%); } }
+
+/* ── NAVBAR ── */
+#navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 8000;
+  padding: 24px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.5s ease, padding 0.4s ease, border-color 0.4s ease;
+  border-bottom: 1px solid transparent;
+}
+#navbar.scrolled {
+  background: rgba(245,242,238,0.96);
+  backdrop-filter: blur(16px);
+  padding: 16px 5%;
+  border-bottom-color: var(--stone);
+}
+.nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
+.nav-logo-img {
+  height: 64px;
+  width: auto;
+  max-width: 280px;
+  object-fit: contain;
+  transition: transform 0.3s ease, height 0.3s ease;
+}
+#navbar.scrolled .nav-logo-img {
+  height: 52px;
+}
+.nav-logo:hover .nav-logo-img {
+  transform: scale(1.03);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover::after,
+.nav-links a.active::after { width: 100%; }
+.nav-links a:hover,
+.nav-links a.active { color: #fff; }
+#navbar.scrolled .nav-links a { color: var(--taupe); }
+#navbar.scrolled .nav-links a:hover,
+#navbar.scrolled .nav-links a.active { color: var(--gold); }
+
+.nav-cta {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+  white-space: nowrap;
+}
+.nav-cta:hover { border-bottom-color: var(--gold); }
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-hamburger span {
+  display: block;
+  width: 26px; height: 1px;
+  background: var(--gold);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Mobile nav overlay */
+#mobile-nav {
+  position: fixed;
+  inset: 0;
+  background: var(--warm-white);
+  z-index: 8500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(100%);
+  transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+#mobile-nav.open { transform: translateX(0); }
+#mobile-nav ul { list-style: none; text-align: center; }
+#mobile-nav ul li { margin: 18px 0; }
+#mobile-nav ul a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--charcoal);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  transition: color 0.3s;
+}
+#mobile-nav ul a:hover { color: var(--gold); }
+#mobile-nav-close {
+  position: absolute;
+  top: 28px; right: 5%;
+  font-size: 1.4rem;
+  color: var(--taupe);
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* ── HERO ── */
+#hero {
+  position: relative;
+  height: 100vh;
+  min-height: 650px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: 0 6% 68px 6%;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1800&q=90');
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.08);
+  transition: transform 8s ease;
+}
+.hero-bg.loaded { transform: scale(1.0); }
+.hero-video-mobile {
+  display: none;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.55) 45%, rgba(13,13,13,0.15) 100%),
+              linear-gradient(90deg, rgba(13,13,13,0.65) 0%, rgba(13,13,13,0.2) 65%, transparent 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  background: rgba(184, 150, 90, 0.14);
+  border: 1px solid rgba(184, 150, 90, 0.38);
+  padding: 8px 18px;
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+  margin-bottom: 18px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateX(-50px);
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  box-shadow: 0 0 8px var(--gold);
+}
+.hero-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 5vw, 4.6rem);
+  font-weight: 400;
+  line-height: 1.08;
+  color: #fff;
+  margin-bottom: 16px;
+  text-align: left;
+  letter-spacing: -0.01em;
+  opacity: 0;
+  transform: translateX(-60px);
+  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.55);
+}
+.hero-sub {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: clamp(0.95rem, 1.35vw, 1.15rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 540px;
+  margin-bottom: 30px;
+  text-align: left;
+  letter-spacing: 0.01em;
+  opacity: 0;
+  transform: translateX(-50px);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateX(-50px);
+}
+.btn-primary-hero {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #0D0D0D;
+  background: var(--gold);
+  padding: 15px 34px;
+  border-radius: 40px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.35s ease;
+  border: none;
+}
+.btn-primary-hero:hover {
+  background: var(--gold-light);
+  color: #0D0D0D;
+  transform: translateY(-3px) scale(1.02);
+}
+.btn-ghost-hero {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 15px 30px;
+  border-radius: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.35s ease;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.08);
+}
+.btn-ghost-hero:hover {
+  color: var(--gold-light);
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-3px);
+}
+
+/* ── HERO SLIDE ANIMATION (LEFT TO RIGHT) ── */
+.hero-animate {
+  animation: heroSlideLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes heroSlideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ── STATS ── */
+#stats {
+  background: var(--charcoal);
+  padding: 60px 6%;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  max-width: 1260px;
+  margin: 0 auto;
+}
+.stat-item {
+  text-align: center;
+  padding: 16px 24px;
+  position: relative;
+}
+.stat-item + .stat-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 15%; bottom: 15%;
+  width: 1px;
+  background: var(--stone);
+  opacity: 0.25;
+}
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem;
+  font-weight: 500;
+  color: var(--gold);
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+}
+.stat-label {
+  font-family: 'Plus Jakarta Sans', 'Jost', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #B5ACA3;
+}
+
+/* ── SECTION COMMONS ── */
+.section-eyebrow {
+  font-family: 'Plus Jakarta Sans', 'Jost', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  display: block;
+}
+.section-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.3rem, 4vw, 3.8rem);
+  font-weight: 600;
+  line-height: 1.12;
+  color: var(--charcoal);
+  margin-bottom: 48px;
+  letter-spacing: -0.01em;
+}
+.section-number-bg {
+  position: absolute;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(8rem, 15vw, 14rem);
+  font-weight: 700;
+  color: var(--charcoal);
+  opacity: 0.035;
+  line-height: 1;
+  top: 0; left: 5%;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* ── REVEAL ANIMATION ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── COMMON LINK ── */
+.link-gold {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+}
+.link-gold::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.4s ease;
+}
+.link-gold:hover::after { width: 100%; }
+
+/* ── ABOUT ── */
+#about {
+  background: var(--cream-dark);
+  padding: 105px 6%;
+  position: relative;
+}
+.about-inner {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-text { position: relative; z-index: 1; }
+.about-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.9rem, 3.5vw, 3rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--charcoal);
+  margin-bottom: 36px;
+}
+.about-body {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 0.9rem;
+  line-height: 1.95;
+  color: var(--taupe);
+  margin-bottom: 28px;
+}
+.about-divider {
+  height: 1px;
+  background: var(--stone);
+  margin: 24px 0;
+  opacity: 0.7;
+}
+.team-badges { display: flex; gap: 24px; margin: 32px 0; flex-wrap: wrap; }
+.team-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.team-badge-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+.team-badge-role {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--taupe);
+}
+.about-images {
+  position: relative;
+  height: 560px;
+}
+.about-img-main {
+  position: absolute;
+  right: 0; top: 0;
+  width: 85%;
+  height: 480px;
+  object-fit: cover;
+}
+.about-img-small {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 52%;
+  height: 240px;
+  object-fit: cover;
+  border: 6px solid var(--cream-dark);
+}
+.about-badge {
+  position: absolute;
+  right: 12%;
+  bottom: 40px;
+  background: var(--gold);
+  color: #fff;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 18px 22px;
+  text-align: center;
+  line-height: 1.4;
+  z-index: 10;
+}
+
+/* ── SERVICES (MINIMALIST CREATIVE CARDS) ── */
+#services {
+  background: var(--warm-white);
+  padding: 100px 6%;
+  position: relative;
+}
+.services-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 54px auto;
+}
+.services-subtitle {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--taupe);
+  line-height: 1.7;
+  margin-top: 12px;
+}
+.services-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1260px;
+  margin: 0 auto;
+}
+.service-vcard {
+  position: relative;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 42px 34px;
+  border: 1px solid var(--stone);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.service-vcard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.service-vcard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(28, 28, 28, 0.06), 0 0 20px rgba(184, 150, 90, 0.06);
+  border-color: var(--gold);
+}
+.service-vcard:hover::before {
+  opacity: 1;
+}
+.service-vcard-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.service-vcard-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(184, 150, 90, 0.08);
+  border: 1px solid rgba(184, 150, 90, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 1.3rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.service-vcard:hover .service-vcard-icon {
+  background: var(--gold);
+  color: #fff;
+  transform: scale(1.06);
+  box-shadow: 0 6px 18px rgba(184, 150, 90, 0.3);
+}
+.service-vcard-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--stone);
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+.service-vcard:hover .service-vcard-num {
+  color: var(--gold);
+}
+.service-vcard-pill {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  text-transform: uppercase;
+  background: rgba(184, 150, 90, 0.08);
+  padding: 5px 12px;
+  border-radius: 16px;
+  display: inline-block;
+  margin-bottom: 16px;
+  align-self: flex-start;
+  border: 1px solid rgba(184, 150, 90, 0.18);
+}
+.service-vcard-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.service-vcard-desc {
+  font-family: 'Plus Jakarta Sans', 'Jost', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--taupe);
+  margin-bottom: 0;
+}
+
+/* ── PROJECTS / IMAGE PLACEHOLDERS ── */
+#projects {
+  background: var(--off-white);
+  padding: 105px 6%;
+  position: relative;
+}
+.projects-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 54px auto;
+}
+.projects-subtitle {
+  font-family: 'Plus Jakarta Sans', 'Jost', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--taupe);
+  line-height: 1.7;
+  margin-top: 12px;
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  max-width: 1260px;
+  margin: 0 auto;
+}
+.project-placeholder {
+  position: relative;
+  height: 340px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--stone);
+  cursor: pointer;
+  background: #EBE6DF;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease, border-color 0.45s ease;
+}
+.project-placeholder:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(28, 28, 28, 0.12);
+  border-color: var(--gold);
+}
+.project-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.project-placeholder:hover img {
+  transform: scale(1.06);
+}
+.project-placeholder-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(13,13,13,0.1) 0%, rgba(13,13,13,0.65) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.project-placeholder:hover .project-placeholder-overlay {
+  opacity: 1;
+}
+.project-view-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(184, 150, 90, 0.9);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transform: scale(0.8);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.project-placeholder:hover .project-view-icon {
+  transform: scale(1);
+}
+.project-placeholder-badge {
+  position: absolute;
+  top: 16px; left: 16px;
+  background: rgba(13, 13, 13, 0.75);
+  backdrop-filter: blur(8px);
+  color: var(--gold-light);
+  font-family: 'Plus Jakarta Sans', 'Jost', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── PROCESS ── */
+#process {
+  background: var(--charcoal);
+  padding: 105px 6%;
+  position: relative;
+  overflow: hidden;
+}
+#process .section-number-bg { color: var(--gold); opacity: 0.06; }
+#process .section-heading { color: #fff; }
+.process-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--taupe);
+  margin-bottom: 72px;
+  margin-top: -32px;
+}
+.process-timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+}
+.process-line-track {
+  position: absolute;
+  top: 26px; left: 10%;
+  right: 10%;
+  height: 1px;
+  background: rgba(212,201,187,0.2);
+}
+.process-line-fill {
+  height: 1px;
+  background: var(--gold);
+  width: 0%;
+  transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+.process-step {
+  position: relative;
+  padding: 0 16px;
+  padding-top: 60px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.process-step.visible { opacity: 1; transform: translateY(0); }
+.process-dot {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--charcoal);
+  border: 2px solid var(--gold);
+}
+.step-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--gold);
+  opacity: 0.6;
+  margin-bottom: 10px;
+  display: block;
+}
+.step-title {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.step-desc {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 0.78rem;
+  line-height: 1.8;
+  color: var(--taupe);
+}
+.process-cta { text-align: center; margin-top: 72px; }
+.btn-gold {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dark);
+  background: var(--gold);
+  padding: 16px 44px;
+  text-decoration: none;
+  transition: background 0.4s;
+  display: inline-block;
+}
+.btn-gold:hover { background: var(--gold-light); }
+
+/* ── TESTIMONIALS ── */
+#testimonials {
+  background: var(--off-white);
+  padding: 100px 5%;
+  position: relative;
+}
+.testimonials-wrap { max-width: 860px; margin: 0 auto; }
+.testimonial-stage { position: relative; min-height: 260px; }
+.testimonial {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+.testimonial.active { opacity: 1; pointer-events: auto; position: relative; }
+.testimonial-stars {
+  color: var(--gold);
+  font-size: 0.8rem;
+  margin-bottom: 28px;
+  letter-spacing: 4px;
+}
+.testimonial-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--charcoal);
+  max-width: 780px;
+  margin-bottom: 32px;
+}
+.testimonial-author {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--taupe);
+  text-transform: uppercase;
+}
+.testimonial-author strong {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--charcoal);
+  text-transform: none;
+  margin-bottom: 4px;
+}
+.testimonial-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 48px;
+}
+.test-arrow {
+  width: 44px; height: 44px;
+  border: 1px solid var(--stone);
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s, background 0.3s;
+  color: var(--taupe);
+  font-size: 0.75rem;
+}
+.test-arrow:hover { border-color: var(--gold); color: var(--gold); }
+.test-dots { display: flex; gap: 10px; }
+.test-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--stone);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  border: none;
+}
+.test-dot.active { background: var(--gold); transform: scale(1.3); }
+
+/* ── MATERIALS ── */
+#materials {
+  background: var(--warm-white);
+  padding: 100px 5%;
+}
+.materials-head { max-width: 560px; margin-bottom: 56px; }
+.materials-head .section-heading { margin-bottom: 12px; }
+.materials-sub {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: var(--taupe);
+}
+.materials-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 220px);
+  gap: 10px;
+}
+.material-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.material-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+.material-item:hover img { transform: scale(1.07); }
+.material-label {
+  position: absolute;
+  inset: 0;
+  background: rgba(13,13,13,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.material-item:hover .material-label { opacity: 1; }
+.material-label span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: 0.1em;
+}
+
+/* ── CTA BANNER ── */
+#cta-banner {
+  position: relative;
+  padding: 130px 5%;
+  overflow: hidden;
+}
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1600210492493-0946911123ea?w=1800&q=85');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13,13,13,0.72);
+}
+.cta-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.cta-eyebrow {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: block;
+}
+.cta-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+.cta-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 52px;
+}
+.cta-btns { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+.btn-gold-fill {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dark);
+  background: var(--gold);
+  padding: 16px 40px;
+  text-decoration: none;
+  transition: background 0.4s;
+  display: inline-block;
+}
+.btn-gold-fill:hover { background: var(--gold-light); }
+.btn-white-outline {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.5);
+  padding: 16px 40px;
+  text-decoration: none;
+  transition: border-color 0.4s, background 0.4s;
+  display: inline-block;
+}
+.btn-white-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+/* ── CONTACT ── */
+#contact {
+  background: var(--off-white);
+  padding: 100px 5%;
+}
+.contact-inner {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  gap: 80px;
+}
+.contact-form-wrap {}
+.contact-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300;
+  color: var(--charcoal);
+  margin-bottom: 10px;
+}
+.contact-sub {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 0.82rem;
+  color: var(--taupe);
+  margin-bottom: 44px;
+  line-height: 1.8;
+}
+.form-field {
+  margin-bottom: 28px;
+}
+.form-field label {
+  display: block;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  margin-bottom: 10px;
+}
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--stone);
+  padding: 10px 0;
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  outline: none;
+  transition: border-color 0.3s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus { border-bottom-color: var(--gold); }
+.form-field textarea { resize: vertical; min-height: 100px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.btn-submit {
+  width: 100%;
+  background: var(--gold);
+  color: var(--dark);
+  border: none;
+  padding: 18px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.4s;
+  margin-top: 10px;
+}
+.btn-submit:hover { background: var(--gold-light); }
+.contact-info {
+  margin-top: 44px;
+  border-top: 1px solid var(--stone);
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: var(--taupe);
+  text-decoration: none;
+  line-height: 1.6;
+}
+.contact-info-item i { color: var(--gold); font-size: 0.8rem; margin-top: 2px; min-width: 16px; }
+.contact-img {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  object-fit: cover;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark);
+  padding: 80px 5% 0;
+  position: relative;
+  overflow: hidden;
+}
+.footer-watermark {
+  position: absolute;
+  bottom: 60px; left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 700;
+  color: rgba(255,255,255,0.035);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: 0.1em;
+}
+.footer-main {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.2fr;
+  gap: 60px;
+  padding-bottom: 60px;
+  position: relative;
+  z-index: 1;
+}
+.footer-logo-img {
+  height: 68px;
+  width: auto;
+  max-width: 300px;
+  object-fit: contain;
+}
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--gold);
+  margin: 16px 0 12px;
+}
+.footer-desc {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 0.78rem;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 24px;
+}
+.footer-socials { display: flex; gap: 16px; }
+.footer-social {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.7rem;
+  text-decoration: none;
+  transition: border-color 0.3s, color 0.3s;
+}
+.footer-social:hover { border-color: var(--gold); color: var(--gold); }
+.footer-col-title {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color 0.3s;
+  letter-spacing: 0.06em;
+}
+.footer-links a:hover { color: var(--gold-light); }
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.6;
+}
+.footer-contact-item i { color: var(--gold); font-size: 0.75rem; margin-top: 2px; min-width: 14px; }
+.footer-bottom {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(184,150,90,0.2);
+  padding: 22px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-copy {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ── FLOATING CALL & WHATSAPP BUTTONS ── */
+#call-float {
+  position: fixed;
+  bottom: 92px;
+  right: 28px;
+  z-index: 7000;
+  background: #fff;
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  border: 1px solid var(--stone);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(28,28,28,0.10);
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, border-color 0.3s;
+}
+#call-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(28,28,28,0.18);
+  background: var(--charcoal);
+  border-color: var(--charcoal);
+}
+#call-float i {
+  color: var(--gold);
+  font-size: 1.15rem;
+  transition: color 0.3s;
+}
+#call-float:hover i {
+  color: #fff;
+}
+#call-float::before {
+  content: 'Call +91 86044 10750';
+  position: absolute;
+  right: 60px;
+  background: var(--charcoal);
+  color: #fff;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  padding: 6px 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+#call-float:hover::before { opacity: 1; }
+
+#wa-float {
+  position: fixed;
+  bottom: 32px;
+  right: 28px;
+  z-index: 7000;
+  background: #fff;
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  border: 1px solid var(--stone);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(28,28,28,0.10);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+#wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(28,28,28,0.18); }
+#wa-float i { color: #25D366; font-size: 1.2rem; }
+#wa-float::before {
+  content: 'Chat with us';
+  position: absolute;
+  right: 60px;
+  background: var(--charcoal);
+  color: #fff;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.68rem;
+  padding: 6px 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+#wa-float:hover::before { opacity: 1; }
+
+
+
+/* ── LIGHTBOX ── */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(13,13,13,0.95);
+  z-index: 9500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+#lightbox.open { opacity: 1; pointer-events: all; }
+#lightbox img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+}
+#lightbox-close {
+  position: absolute;
+  top: 24px; right: 32px;
+  color: rgba(255,255,255,0.6);
+  font-size: 1.8rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 0.3s;
+  line-height: 1;
+}
+#lightbox-close:hover { color: var(--gold); }
+
+/* ── RESPONSIVE ── */
+@media (pointer: coarse) {
+  body { cursor: auto !important; }
+  #cursor-dot, #cursor-ring { display: none !important; }
+}
+
+@media (max-width: 1024px) {
+  .services-visual-grid { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); max-width: 800px; margin: 0 auto; }
+  .footer-main { grid-template-columns: 1fr 1fr; }
+  .footer-main > :first-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 768px) {
+  body { cursor: auto; }
+  #cursor-dot, #cursor-ring { display: none; }
+  .nav-links, .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-logo-img { height: 50px; }
+  #hero {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 560px;
+    padding: 0 6% 36px 6%;
+    align-items: flex-end;
+  }
+  .hero-bg { display: none !important; }
+  .hero-video-mobile {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+  .hero-overlay {
+    background: linear-gradient(180deg, rgba(13, 13, 13, 0.45) 0%, transparent 28%, rgba(13, 13, 13, 0.2) 60%, rgba(13, 13, 13, 0.75) 100%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0;
+    text-align: left;
+    max-width: 100%;
+  }
+  .hero-eyebrow,
+  .hero-sub,
+  .btn-ghost-hero {
+    display: none !important;
+  }
+  .hero-h1 {
+    font-size: clamp(1.85rem, 6.2vw, 2.35rem);
+    line-height: 1.14;
+    margin-bottom: 18px;
+    max-width: 90%;
+  }
+  .hero-btns { justify-content: flex-start; }
+  .stats-grid { grid-template-columns: 1fr; gap: 24px; }
+  .stat-item + .stat-item::before { display: none; }
+  .services-visual-grid { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .about-inner { grid-template-columns: 1fr; }
+  .about-images { order: -1; height: 360px; }
+  .about-img-main { width: 90%; height: 300px; }
+  .about-img-small { width: 50%; height: 180px; }
+  .process-timeline { grid-template-columns: 1fr; }
+  .process-line-track { display: none; }
+  .process-step { padding-top: 20px; padding-bottom: 20px; border-left: 1px solid rgba(184,150,90,0.3); padding-left: 32px; margin-left: 20px; }
+  .process-dot { left: -9px; top: 22px; transform: none; }
+  .materials-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-inner { grid-template-columns: 1fr; }
+  .contact-inner > img { display: none; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-main { grid-template-columns: 1fr; gap: 40px; }
+  .footer-main > :first-child { grid-column: auto; }
+  #call-float { bottom: 82px; }
+  #wa-float { bottom: 24px; }
+  .hero-location { display: none; }
+}
+
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .cta-btns { flex-direction: column; align-items: center; }
+  .testimonial-controls { flex-direction: column; }
+  #about { padding: 70px 5%; }
+}
+</style>
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<!-- SCROLL PROGRESS -->
+<div id="scroll-progress"></div>
+
+<!-- INTRO OVERLAY -->
+<div id="intro">
+  <img src="assets/logos/qlart_header_logo.webp" alt="Kaarigari Interior Logo" id="intro-logo">
+  <div id="intro-line"></div>
+  <div id="intro-tag">Complete Interior Design Solutions for Modern Living</div>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button id="lightbox-close">&times;</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<!-- MOBILE NAV -->
+<div id="mobile-nav">
+  <button id="mobile-nav-close"><i class="fa fa-times"></i></button>
+  <img src="assets/logos/qlart_header_logo.webp" alt="Kaarigari Interior Logo" style="height: 64px; width: auto; max-width: 280px; margin-bottom: 28px; object-fit: contain;">
+  <ul>
+    <li><a href="#about" onclick="closeMobileNav()">Studio</a></li>
+    <li><a href="#services" onclick="closeMobileNav()">Services</a></li>
+    <li><a href="#projects" onclick="closeMobileNav()">Projects</a></li>
+    <li><a href="#process" onclick="closeMobileNav()">Process</a></li>
+    <li><a href="#testimonials" onclick="closeMobileNav()">Reviews</a></li>
+    <li><a href="#contact" onclick="closeMobileNav()">Get a Quote</a></li>
+  </ul>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo" aria-label="Kaarigari Interior Home">
+    <img src="assets/logos/qlart_header_logo.webp" alt="Kaarigari Interior Logo" class="nav-logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">Studio</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get a Quote →</a>
+  <div class="nav-hamburger" onclick="openMobileNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg" id="hero-bg"></div>
+  <video class="hero-video-mobile" id="hero-video-mobile" autoplay muted loop playsinline webkit-playsinline preload="auto">
+    <source src="assets/Hero/Hero.webm" type="video/webm">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow" id="h-ey">Interior Designer</span>
+    <h1 class="hero-h1" id="h-title">Your complete design solution, all in one</h1>
+    <p class="hero-sub" id="h-sub">Complete interior design solutions for modern living</p>
+    <div class="hero-btns" id="h-btns">
+      <a href="#contact" class="btn-primary-hero">Get a Quote →</a>
+      <a href="#services" class="btn-ghost-hero">Explore Services ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS RIBBON -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <span class="stat-number" data-target="1" data-pad="2">01</span>
+      <span class="stat-label">Current Project</span>
+    </div>
+    <div class="stat-item reveal" style="transition-delay:0.1s">
+      <span class="stat-number" data-target="10">10</span>
+      <span class="stat-label">Homes Renovated</span>
+    </div>
+    <div class="stat-item reveal" style="transition-delay:0.2s">
+      <span class="stat-number" data-target="6" data-pad="2">06</span>
+      <span class="stat-label">Valued Partners</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT (STUDIO) -->
+<section id="about">
+  <div class="section-number-bg">01</div>
+  <div class="about-inner">
+    <div class="about-text reveal">
+      <span class="section-eyebrow">— About Kaarigari Interior</span>
+      <h2 class="about-heading">"Complete Interior Design<br>Solutions For Modern Living."</h2>
+      <p class="about-body">Kaarigari Interior is a creative interior design startup focused on creating modern, practical, and budget-conscious spaces. The studio combines aesthetics, comfort, functionality, and personalization to create thoughtfully designed interiors.</p>
+      <div class="about-divider"></div>
+      <p class="about-body">Kaarigari emphasizes building long-term relationships through design excellence, working with individuals and partners who value thoughtful design. Whether it's a dedicated kitchen remodel, a luxury bathroom transformation, or a complete home addition, every space is crafted with precision and care.</p>
+      <div class="about-divider"></div>
+      <div class="team-badges">
+        <div class="team-badge">
+          <span class="team-badge-name">Kaarigari Interior</span>
+          <span class="team-badge-role">Interior Design & Home Remodeling</span>
+        </div>
+        <div class="team-badge">
+          <span class="team-badge-name">Sector 71, Gurgaon</span>
+          <span class="team-badge-role">Railway Station Road · Haryana</span>
+        </div>
+      </div>
+      <a href="#contact" class="link-gold">Get a Quote →</a>
+    </div>
+    <div class="about-images reveal" style="transition-delay:0.15s">
+      <img class="about-img-main" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=85" alt="Interior Design Studio" loading="lazy">
+      <img class="about-img-small" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=300&q=85" alt="Material and Finishes" loading="lazy">
+      <div class="about-badge">01 Current Project<br>10 Homes Renovated</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES (3 CLEAN MINIMALIST CARDS) -->
+<section id="services">
+  <div class="section-number-bg">02</div>
+  <div class="services-header reveal">
+    <span class="section-eyebrow">— Confirmed Services</span>
+    <h2 class="section-heading">Our Specialized Services</h2>
+    <p class="services-subtitle">Thoughtfully planned, beautifully crafted spaces tailored for modern Gurgaon living.</p>
+  </div>
+
+  <div class="services-visual-grid">
+    <!-- Card 1: Kitchen Remodeling -->
+    <div class="service-vcard reveal">
+      <div class="service-vcard-top">
+        <div class="service-vcard-icon">
+          <i class="fa-solid fa-kitchen-set"></i>
+        </div>
+        <span class="service-vcard-num">01</span>
+      </div>
+      <span class="service-vcard-pill">Modular · Ergonomic · Storage-Smart</span>
+      <h3 class="service-vcard-title">Kitchen Remodeling</h3>
+      <p class="service-vcard-desc">Functional, ergonomic, and aesthetic modular kitchens customized for modern living, intelligent storage, and smart culinary workflows.</p>
+    </div>
+
+    <!-- Card 2: Bathroom Remodeling -->
+    <div class="service-vcard reveal" style="transition-delay:0.1s">
+      <div class="service-vcard-top">
+        <div class="service-vcard-icon">
+          <i class="fa-solid fa-bath"></i>
+        </div>
+        <span class="service-vcard-num">02</span>
+      </div>
+      <span class="service-vcard-pill">Modern · Luxury Finishes · Waterproofing</span>
+      <h3 class="service-vcard-title">Bathroom Remodeling</h3>
+      <p class="service-vcard-desc">Transformative bathroom renovations combining luxury finishes, premium sanitaryware, moisture resistance, and optimal space utilization.</p>
+    </div>
+
+    <!-- Card 3: Home Additions -->
+    <div class="service-vcard reveal" style="transition-delay:0.2s">
+      <div class="service-vcard-top">
+        <div class="service-vcard-icon">
+          <i class="fa-solid fa-shapes"></i>
+        </div>
+        <span class="service-vcard-num">03</span>
+      </div>
+      <span class="service-vcard-pill">Space Expansion · Structural Design</span>
+      <h3 class="service-vcard-title">Home Additions</h3>
+      <p class="service-vcard-desc">Expanding your living footprint with seamless structural additions, extra rooms, floor extensions, and modern functional living spaces.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS / FEATURED WORK -->
+<section id="projects">
+  <div class="section-number-bg">03</div>
+  <div class="projects-header reveal">
+    <span class="section-eyebrow">— Selected Work</span>
+    <h2 class="section-heading">Featured Projects</h2>
+    <p class="projects-subtitle">A curated showcase of residential transformations and interior spaces crafted in Gurgaon.</p>
+  </div>
+
+  <div class="projects-grid">
+    <!-- Image Placeholder 1 -->
+    <div class="project-placeholder reveal" onclick="openLightbox('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=1400&q=90')">
+      <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=900&q=85" alt="Project Image 01" loading="lazy">
+      <div class="project-placeholder-overlay">
+        <div class="project-view-icon"><i class="fa-solid fa-expand"></i></div>
+      </div>
+    </div>
+
+    <!-- Image Placeholder 2 -->
+    <div class="project-placeholder reveal" style="transition-delay:0.1s" onclick="openLightbox('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1400&q=90')">
+      <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=900&q=85" alt="Project Image 02" loading="lazy">
+      <div class="project-placeholder-overlay">
+        <div class="project-view-icon"><i class="fa-solid fa-expand"></i></div>
+      </div>
+    </div>
+
+    <!-- Image Placeholder 3 -->
+    <div class="project-placeholder reveal" style="transition-delay:0.2s" onclick="openLightbox('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=90')">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=85" alt="Project Image 03" loading="lazy">
+      <div class="project-placeholder-overlay">
+        <div class="project-view-icon"><i class="fa-solid fa-expand"></i></div>
+      </div>
+    </div>
+
+    <!-- Image Placeholder 4 -->
+    <div class="project-placeholder reveal" style="transition-delay:0.1s" onclick="openLightbox('https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1400&q=90')">
+      <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=900&q=85" alt="Project Image 04" loading="lazy">
+      <div class="project-placeholder-overlay">
+        <div class="project-view-icon"><i class="fa-solid fa-expand"></i></div>
+      </div>
+    </div>
+
+    <!-- Image Placeholder 5 -->
+    <div class="project-placeholder reveal" style="transition-delay:0.15s" onclick="openLightbox('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1400&q=90')">
+      <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900&q=85" alt="Project Image 05" loading="lazy">
+      <div class="project-placeholder-overlay">
+        <div class="project-view-icon"><i class="fa-solid fa-expand"></i></div>
+      </div>
+    </div>
+
+    <!-- Image Placeholder 6 -->
+    <div class="project-placeholder reveal" style="transition-delay:0.2s" onclick="openLightbox('https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1400&q=90')">
+      <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=900&q=85" alt="Project Image 06" loading="lazy">
+      <div class="project-placeholder-overlay">
+        <div class="project-view-icon"><i class="fa-solid fa-expand"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-number-bg">04</div>
+  <div style="text-align:center; margin-bottom: 16px;" class="reveal">
+    <span class="section-eyebrow" style="color:var(--gold)">— How We Work</span>
+    <h2 class="section-heading">Our Process</h2>
+  </div>
+  <p class="process-sub reveal" style="text-align:center; transition-delay:0.1s">A clear, collaborative process — no surprises, just results.</p>
+  <div class="process-timeline" id="process-timeline">
+    <div class="process-line-track"><div class="process-line-fill" id="process-line"></div></div>
+    <div class="process-step" style="transition-delay:0s">
+      <div class="process-dot"></div>
+      <span class="step-num">01</span>
+      <div class="step-title">Discovery Call</div>
+      <p class="step-desc">We listen. Tell us about your space, your vision, and your budget. Free consultation.</p>
+    </div>
+    <div class="process-step" style="transition-delay:0.15s">
+      <div class="process-dot"></div>
+      <span class="step-num">02</span>
+      <div class="step-title">Concept Design</div>
+      <p class="step-desc">Mood boards, space plans, and 3D visualisations so you can see it before we build it.</p>
+    </div>
+    <div class="process-step" style="transition-delay:0.3s">
+      <div class="process-dot"></div>
+      <span class="step-num">03</span>
+      <div class="step-title">Design Approval</div>
+      <p class="step-desc">We refine until you love it. We don't move forward until you're 100% confident.</p>
+    </div>
+    <div class="process-step" style="transition-delay:0.45s">
+      <div class="process-dot"></div>
+      <span class="step-num">04</span>
+      <div class="step-title">Execution</div>
+      <p class="step-desc">Trusted vendors and contractors execute the design with precision. We supervise every detail on-site.</p>
+    </div>
+    <div class="process-step" style="transition-delay:0.6s">
+      <div class="process-dot"></div>
+      <span class="step-num">05</span>
+      <div class="step-title">Reveal & Handover</div>
+      <p class="step-desc">We hand over your transformed space — styled, complete, and ready to live in.</p>
+    </div>
+  </div>
+  <div class="process-cta reveal" style="transition-delay:0.2s">
+    <a href="#contact" class="btn-gold">Get a Quote →</a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div style="text-align:center; margin-bottom: 60px;" class="reveal">
+    <span class="section-eyebrow">— Client Focus</span>
+    <h2 class="section-heading" style="margin-bottom:0">What Our Clients Say</h2>
+  </div>
+  <div class="testimonials-wrap reveal" style="transition-delay:0.1s">
+    <div class="testimonial-stage" id="test-stage">
+      <div class="testimonial active" data-index="0">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote class="testimonial-quote">"Kaarigari Interior completely transformed our modular kitchen. The ergonomics, storage solutions, and budget transparency made the entire remodeling journey effortless and rewarding."</blockquote>
+        <div class="testimonial-author"><strong>Rohan & Meera Sharma</strong>Kitchen Remodel · Sector 71, Gurgaon</div>
+      </div>
+      <div class="testimonial" data-index="1">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote class="testimonial-quote">"We hired Kaarigari Interior for our master bathroom renovation. The finishes, marble vanity detailing, and waterproofing execution were top notch. Outstanding professionalism."</blockquote>
+        <div class="testimonial-author"><strong>Sanjay Agarwal</strong>Bathroom Remodel · DLF Phase 5, Gurgaon</div>
+      </div>
+      <div class="testimonial" data-index="2">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote class="testimonial-quote">"Their design team understands how to balance aesthetic beauty with practical living. The home addition they executed blended seamlessly into our existing layout."</blockquote>
+        <div class="testimonial-author"><strong>Anita Verma</strong>Home Addition · Sohna Road, Gurgaon</div>
+      </div>
+      <div class="testimonial" data-index="3">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote class="testimonial-quote">"From concept sketches to the final reveal, Kaarigari proved why they are so trusted in Gurgaon. Thoughtful design, attentive listening, and punctual delivery."</blockquote>
+        <div class="testimonial-author"><strong>Vikram & Pooja Gupta</strong>Residential Client · Golf Course Extn, Gurgaon</div>
+      </div>
+      <div class="testimonial" data-index="4">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote class="testimonial-quote">"Creative, practical, and highly responsive. Kaarigari Interior delivered exceptional design value without pushing unnecessary costs. Highly recommended!"</blockquote>
+        <div class="testimonial-author"><strong>Deepak Malhotra</strong>Remodel Client · Sector 71, Gurgaon</div>
+      </div>
+    </div>
+    <div class="testimonial-controls">
+      <button class="test-arrow" id="test-prev"><i class="fa fa-arrow-left"></i></button>
+      <div class="test-dots" id="test-dots"></div>
+      <button class="test-arrow" id="test-next"><i class="fa fa-arrow-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- MATERIALS -->
+<section id="materials">
+  <div class="materials-head reveal">
+    <span class="section-eyebrow">— Craftsmanship</span>
+    <h2 class="section-heading">Our Design Language</h2>
+    <p class="materials-sub">Materials, textures, and palettes we love working with</p>
+  </div>
+  <div class="materials-grid reveal" style="transition-delay:0.1s">
+    <div class="material-item">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Italian Marble" loading="lazy">
+      <div class="material-label"><span>Italian Marble</span></div>
+    </div>
+    <div class="material-item">
+      <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=400&q=80" alt="Teak Wood" loading="lazy">
+      <div class="material-label"><span>Teak Wood</span></div>
+    </div>
+    <div class="material-item">
+      <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=400&q=80" alt="Linen & Velvet" loading="lazy">
+      <div class="material-label"><span>Linen & Velvet</span></div>
+    </div>
+    <div class="material-item">
+      <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=400&q=80" alt="Brass Fixtures" loading="lazy">
+      <div class="material-label"><span>Brass Fixtures</span></div>
+    </div>
+    <div class="material-item">
+      <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400&q=80" alt="Curated Palettes" loading="lazy">
+      <div class="material-label"><span>Curated Palettes</span></div>
+    </div>
+    <div class="material-item">
+      <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=400&q=80" alt="Quartz Countertops" loading="lazy">
+      <div class="material-label"><span>Quartz Surfaces</span></div>
+    </div>
+    <div class="material-item">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Natural Light" loading="lazy">
+      <div class="material-label"><span>Natural Light</span></div>
+    </div>
+    <div class="material-item">
+      <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=400&q=80" alt="Cane & Rattan" loading="lazy">
+      <div class="material-label"><span>Cane & Rattan</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section id="cta-banner">
+  <div class="cta-bg"></div>
+  <div class="cta-overlay"></div>
+  <div class="cta-content reveal">
+    <span class="cta-eyebrow">— Let's Create Something Beautiful</span>
+    <h2 class="cta-heading">Ready to Transform<br>Your Space?</h2>
+    <p class="cta-sub">Get in touch with Kaarigari Interior to discuss your project and receive a personalized quote.</p>
+    <div class="cta-btns">
+      <a href="#contact" class="btn-gold-fill">Get a Quote</a>
+      <a href="https://wa.me/918604410750" target="_blank" class="btn-white-outline"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-form-wrap reveal">
+      <span class="section-eyebrow">— Get In Touch</span>
+      <h2 class="contact-heading">Start a Conversation</h2>
+      <p class="contact-sub">Fill in the form and we'll get back to you within 24 hours.</p>
+      <div id="contact-form">
+        <div class="form-row">
+          <div class="form-field">
+            <label>Full Name</label>
+            <input type="text" id="fname" placeholder="Your Name">
+          </div>
+          <div class="form-field">
+            <label>Phone Number</label>
+            <input type="tel" id="fphone" placeholder="+91 86044 10750">
+          </div>
+        </div>
+        <div class="form-field">
+          <label>Email Address</label>
+          <input type="email" id="femail" placeholder="kaarigariinterior@gmail.com">
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>Confirmed Service / Project Type</label>
+            <select id="ftype">
+              <option value="">Select service</option>
+              <option>Kitchen Remodeling</option>
+              <option>Bathroom Remodeling</option>
+              <option>Home Additions</option>
+              <option>Complete Home Remodel</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Location / City</label>
+            <input type="text" id="fcity" placeholder="Sector 71, Gurgaon">
+          </div>
+        </div>
+        <div class="form-field">
+          <label>Message</label>
+          <textarea id="fmessage" placeholder="Tell us about your project requirements..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="submitForm()">Get a Quote →</button>
+      </div>
+      <div class="contact-info">
+        <a href="https://maps.google.com/?q=Railway+Station+Road+Sector+71+Gurgaon+Haryana" target="_blank" class="contact-info-item"><i class="fa fa-location-dot"></i> Railway Station Road, Sector 71, Gurgaon, Haryana</a>
+        <a href="tel:+918604410750" class="contact-info-item"><i class="fa fa-phone"></i> +91 86044 10750</a>
+        <a href="mailto:kaarigariinterior@gmail.com" class="contact-info-item"><i class="fa fa-envelope"></i> kaarigariinterior@gmail.com</a>
+        <span class="contact-info-item"><i class="fa fa-clock"></i> Mon–Sat: 10:00 AM – 7:00 PM</span>
+        <div style="display: flex; gap: 16px; margin-top: 8px;">
+          <a href="https://instagram.com" target="_blank" class="contact-info-item" style="padding: 4px 0;"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="https://facebook.com" target="_blank" class="contact-info-item" style="padding: 4px 0;"><i class="fab fa-facebook-f"></i> Facebook</a>
+          <a href="https://linkedin.com" target="_blank" class="contact-info-item" style="padding: 4px 0;"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+          <a href="https://pinterest.com" target="_blank" class="contact-info-item" style="padding: 4px 0;"><i class="fab fa-pinterest-p"></i> Pinterest</a>
+        </div>
+      </div>
+    </div>
+    <img class="contact-img reveal" style="transition-delay:0.15s" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=85" alt="Kaarigari Interior Studio" loading="lazy">
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-watermark">KAARIGARI INTERIOR</div>
+  <div class="footer-main">
+    <div>
+      <div class="footer-logo-wrap" style="margin-bottom:16px; display:inline-flex">
+        <img src="assets/logos/qlart_header_logo.webp" alt="Kaarigari Interior Logo" class="footer-logo-img">
+      </div>
+      <p class="footer-tagline">"Complete interior design solutions for modern living."</p>
+      <p class="footer-desc">Kaarigari Interior is a creative interior design startup focused on creating modern, practical and budget-conscious spaces. The studio combines aesthetics, comfort, functionality and personalization to create thoughtfully designed interiors.</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com" target="_blank" class="footer-social" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com" target="_blank" class="footer-social" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://linkedin.com" target="_blank" class="footer-social" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://pinterest.com" target="_blank" class="footer-social" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        <a href="https://wa.me/918604410750" target="_blank" class="footer-social" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#about">About Kaarigari</a></li>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#projects">Featured Projects</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#testimonials">Client Reviews</a></li>
+        <li><a href="#contact">Get a Quote</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-contact-item"><i class="fa fa-location-dot"></i> Railway Station Road, Sector 71, Gurgaon, Haryana</div>
+      <div class="footer-contact-item"><i class="fa fa-phone"></i> +91 86044 10750</div>
+      <div class="footer-contact-item"><i class="fa fa-envelope"></i> kaarigariinterior@gmail.com</div>
+      <div class="footer-contact-item"><i class="fa fa-clock"></i> Mon–Sat: 10 AM – 7 PM</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Kaarigari Interior · All Rights Reserved · Gurgaon, Haryana</span>
+    <span class="footer-copy">Complete interior design solutions for modern living</span>
+  </div>
+</footer>
+
+<!-- FLOATING CALL & WHATSAPP BUTTONS -->
+<a href="tel:+918604410750" id="call-float" title="Call Us"><i class="fa fa-phone"></i></a>
+<a href="https://wa.me/918604410750" id="wa-float" target="_blank" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+// ── INTRO ANIMATION ──
+(function() {
+  const intro = document.getElementById('intro');
+  const skip = sessionStorage.getItem('kaarigari_intro_played');
+  if (skip) {
+    intro.style.display = 'none';
+    startHeroAnim();
+    return;
+  }
+  sessionStorage.setItem('kaarigari_intro_played', '1');
+  intro.classList.add('slide-up');
+  // After slide-up animation ends
+  intro.addEventListener('animationend', function(e) {
+    if (e.animationName === 'slideUp') {
+      intro.style.display = 'none';
+      startHeroAnim();
+    }
+  });
+  // Fallback
+  setTimeout(() => { intro.style.display = 'none'; startHeroAnim(); }, 3600);
+})();
+
+function startHeroAnim() {
+  const items = [
+    { el: document.getElementById('h-ey'), delay: 0 },
+    { el: document.getElementById('h-title'), delay: 180 },
+    { el: document.getElementById('h-sub'), delay: 420 },
+    { el: document.getElementById('h-btns'), delay: 650 },
+  ];
+  items.forEach(({ el, delay }) => {
+    if (!el) return;
+    setTimeout(() => { el.classList.add('hero-animate'); }, delay);
+  });
+  // Hero bg subtle zoom & mobile video play
+  setTimeout(() => {
+    const bg = document.getElementById('hero-bg');
+    if (bg) bg.classList.add('loaded');
+    const mobVideo = document.getElementById('hero-video-mobile');
+    if (mobVideo) {
+      mobVideo.muted = true;
+      mobVideo.play().catch(() => {});
+    }
+  }, 100);
+}
+
+// ── CURSOR ──
+const dot = document.getElementById('cursor-dot');
+const ring = document.getElementById('cursor-ring');
+let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  dot.style.left = mouseX + 'px';
+  dot.style.top = mouseY + 'px';
+});
+function animateRing() {
+  ringX += (mouseX - ringX) * 0.18;
+  ringY += (mouseY - ringY) * 0.18;
+  ring.style.left = ringX + 'px';
+  ring.style.top = ringY + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+document.querySelectorAll('a, button, .service-vcard, .project-placeholder, .material-item').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+});
+
+// ── SCROLL PROGRESS ──
+const progressBar = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.body.scrollHeight - window.innerHeight;
+  progressBar.style.width = (scrollTop / docHeight * 100) + '%';
+});
+
+// ── NAVBAR SCROLL & ACTIVE SCROLLSPY ──
+const navbar = document.getElementById('navbar');
+const navLinks = document.querySelectorAll('.nav-links a');
+const mobileNavLinks = document.querySelectorAll('#mobile-nav ul a');
+const spySections = document.querySelectorAll('section[id]');
+
+function updateActiveNav() {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+  
+  let current = '';
+  const scrollPos = window.scrollY + 140;
+  
+  spySections.forEach(section => {
+    const top = section.offsetTop;
+    const height = section.offsetHeight;
+    if (scrollPos >= top && scrollPos < top + height) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) {
+      link.classList.add('active');
+    }
+  });
+
+  mobileNavLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) {
+      link.classList.add('active');
+    }
+  });
+}
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+updateActiveNav();
+
+// ── MOBILE NAV ──
+function openMobileNav() { document.getElementById('mobile-nav').classList.add('open'); }
+function closeMobileNav() { document.getElementById('mobile-nav').classList.remove('open'); }
+document.getElementById('mobile-nav-close').addEventListener('click', closeMobileNav);
+document.getElementById('mobile-nav').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('mobile-nav')) closeMobileNav();
+});
+
+// ── INTERSECTION OBSERVER — REVEAL ──
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ── STATS COUNT-UP ──
+function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+function countUp(el) {
+  const target = parseInt(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const pad = el.dataset.pad ? parseInt(el.dataset.pad) : 0;
+  const duration = 2000;
+  const start = performance.now();
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const value = Math.round(easeOut(progress) * target);
+    const formatted = pad ? String(value).padStart(pad, '0') : String(value);
+    el.textContent = formatted + suffix;
+    if (progress < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.stat-number').forEach(countUp);
+      statsObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.4 });
+const statsSection = document.getElementById('stats');
+if (statsSection) statsObserver.observe(statsSection);
+
+// ── PROCESS TIMELINE ──
+const processObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      document.querySelectorAll('.process-step').forEach(s => s.classList.add('visible'));
+      const line = document.getElementById('process-line');
+      if (line) line.style.width = '100%';
+      processObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.25 });
+const procSection = document.getElementById('process-timeline');
+if (procSection) processObserver.observe(procSection);
+
+// ── TESTIMONIALS ──
+let currentTestimonial = 0;
+let testimonialTimer;
+const testimonials = document.querySelectorAll('.testimonial');
+const dotsContainer = document.getElementById('test-dots');
+
+function initDots() {
+  testimonials.forEach((_, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'test-dot' + (i === 0 ? ' active' : '');
+    btn.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(btn);
+  });
+}
+function goTo(n) {
+  testimonials[currentTestimonial].classList.remove('active');
+  dotsContainer.children[currentTestimonial].classList.remove('active');
+  currentTestimonial = (n + testimonials.length) % testimonials.length;
+  testimonials[currentTestimonial].classList.add('active');
+  dotsContainer.children[currentTestimonial].classList.add('active');
+  resetTimer();
+}
+function resetTimer() {
+  clearInterval(testimonialTimer);
+  testimonialTimer = setInterval(() => goTo(currentTestimonial + 1), 6000);
+}
+document.getElementById('test-prev').addEventListener('click', () => goTo(currentTestimonial - 1));
+document.getElementById('test-next').addEventListener('click', () => goTo(currentTestimonial + 1));
+const testSection = document.getElementById('testimonials');
+testSection.addEventListener('mouseenter', () => clearInterval(testimonialTimer));
+testSection.addEventListener('mouseleave', resetTimer);
+initDots();
+resetTimer();
+
+// ── LIGHTBOX ──
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+function openLightbox(src) {
+  lightboxImg.src = src;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+document.getElementById('lightbox-close').addEventListener('click', () => {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+});
+lightbox.addEventListener('click', e => {
+  if (e.target === lightbox) {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
+// ── FORM SUBMIT → WHATSAPP ──
+function submitForm() {
+  const name = document.getElementById('fname').value || 'a visitor';
+  const phone = document.getElementById('fphone').value || '';
+  const type = document.getElementById('ftype').value || 'a remodeling project';
+  const city = document.getElementById('fcity').value || 'Gurgaon';
+  const msg = document.getElementById('fmessage').value || '';
+  const text = encodeURIComponent(`Hi Kaarigari Interior, I would like to get a quote.\n\nName: ${name}\nPhone: ${phone}\nProject Type: ${type}\nCity: ${city}\nMessage: ${msg}`);
+  window.open(`https://wa.me/918604410750?text=${text}`, '_blank');
+}
+
+// ── HERO PARALLAX ──
+window.addEventListener('scroll', () => {
+  const heroEl = document.getElementById('hero');
+  if (!heroEl) return;
+  const scrolled = window.scrollY;
+  const bg = document.getElementById('hero-bg');
+  if (bg && scrolled < window.innerHeight) {
+    bg.style.transform = `translateY(${scrolled * 0.3}px)`;
+  }
+});
+</script>
+</body>
+</html>
