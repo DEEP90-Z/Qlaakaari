@@ -81,54 +81,7 @@ body.cursor-hover #cursor-ring {
   transition: width 0.05s linear;
 }
 
-/* ── INTRO OVERLAY ── */
-#intro {
-  position: fixed;
-  inset: 0;
-  background: var(--dark);
-  z-index: 9000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-#intro-line {
-  width: 0%;
-  height: 1px;
-  background: var(--gold);
-  margin-bottom: 40px;
-  animation: drawLine 0.8s cubic-bezier(0.76, 0, 0.24, 1) 0.8s forwards;
-}
-@keyframes drawLine { to { width: 60%; } }
 
-#intro-logo {
-  max-width: 480px;
-  width: 85%;
-  height: auto;
-  object-fit: contain;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s forwards;
-}
-#intro-tag {
-  font-family: 'Jost', sans-serif;
-  font-weight: 100;
-  font-size: 0.75rem;
-  letter-spacing: 0.3em;
-  color: var(--gold);
-  margin-top: 18px;
-  opacity: 0;
-  animation: fadeUp 0.6s ease 2.0s forwards;
-  text-transform: uppercase;
-}
-@keyframes fadeUp {
-  to { opacity: 1; transform: translateY(0); }
-}
-#intro.slide-up {
-  animation: slideUp 0.9s cubic-bezier(0.76, 0, 0.24, 1) 2.4s forwards;
-}
-@keyframes slideUp { to { transform: translateY(-100%); } }
 
 /* ── NAVBAR (SLIM LUXURY FLOATING CAPSULE) ── */
 #navbar {
@@ -646,6 +599,8 @@ body.cursor-hover #cursor-ring {
   width: 85%;
   height: 480px;
   object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(28, 28, 28, 0.1);
 }
 .about-img-small {
   position: absolute;
@@ -654,20 +609,82 @@ body.cursor-hover #cursor-ring {
   height: 240px;
   object-fit: cover;
   border: 6px solid var(--cream-dark);
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(28, 28, 28, 0.12);
 }
-.about-badge {
+.about-badge-card {
   position: absolute;
-  right: 12%;
-  bottom: 40px;
-  background: var(--gold);
-  color: #fff;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 18px 22px;
-  text-align: center;
-  line-height: 1.4;
+  right: 6%;
+  bottom: 28px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(184, 150, 90, 0.45);
+  border-radius: 18px;
+  padding: 16px 22px;
+  box-shadow: 0 16px 38px rgba(28, 28, 28, 0.16), 0 0 20px rgba(184, 150, 90, 0.1);
   z-index: 10;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+.about-badge-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(28, 28, 28, 0.2), 0 0 24px rgba(184, 150, 90, 0.18);
+}
+.badge-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.badge-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34A853;
+  box-shadow: 0 0 8px #34A853;
+  display: inline-block;
+  animation: pulseDot 2s infinite;
+}
+@keyframes pulseDot {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.35); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.badge-stats-row {
+  display: flex;
+  align-items: center;
+}
+.badge-stat {
+  display: flex;
+  flex-direction: column;
+}
+.badge-stat-num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #141414;
+  line-height: 1;
+  margin-bottom: 2px;
+  letter-spacing: -0.02em;
+}
+.badge-stat-lbl {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #6E645A;
+  white-space: nowrap;
+}
+.badge-stat-sep {
+  width: 1px;
+  height: 28px;
+  background: rgba(216, 206, 191, 0.75);
+  margin: 0 16px;
 }
 
 /* ── SERVICES (9 BESPOKE INTERIOR DESIGN CATEGORIES) ── */
@@ -771,17 +788,18 @@ body.cursor-hover #cursor-ring {
 }
 .project-placeholder {
   position: relative;
-  height: 340px;
-  border-radius: 16px;
+  height: 380px;
+  border-radius: 18px;
   overflow: hidden;
   border: 1px solid var(--stone);
   cursor: pointer;
   background: #EBE6DF;
+  box-shadow: 0 8px 24px rgba(28, 28, 28, 0.05);
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease, border-color 0.45s ease;
 }
 .project-placeholder:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(28, 28, 28, 0.12);
+  box-shadow: 0 22px 48px rgba(28, 28, 28, 0.16);
   border-color: var(--gold);
 }
 .project-placeholder img {
@@ -797,32 +815,64 @@ body.cursor-hover #cursor-ring {
 .project-placeholder-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(13,13,13,0.1) 0%, rgba(13,13,13,0.65) 100%);
+  background: linear-gradient(180deg, rgba(13,13,13,0.06) 0%, rgba(13,13,13,0.3) 45%, rgba(13,13,13,0.88) 100%);
   opacity: 0;
   transition: opacity 0.4s ease;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
 }
 .project-placeholder:hover .project-placeholder-overlay {
   opacity: 1;
 }
+.project-view-top {
+  display: flex;
+  justify-content: flex-end;
+}
 .project-view-icon {
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: rgba(184, 150, 90, 0.9);
+  background: rgba(184, 150, 90, 0.92);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
-  transform: scale(0.8);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 1rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  transform: scale(0.85);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
 }
 .project-placeholder:hover .project-view-icon {
   transform: scale(1);
+}
+.project-info-overlay {
+  transform: translateY(10px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
+}
+.project-placeholder:hover .project-info-overlay {
+  transform: translateY(0);
+}
+.project-info-cat {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #E2C58A;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 5px;
+}
+.project-info-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.42rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  line-height: 1.25;
 }
 
 /* ── PREMIUM ANIMATED OUR PROCESS SECTION ── */
@@ -1720,6 +1770,14 @@ footer {
   max-width: 90vw;
   max-height: 85vh;
   object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.12);
+  transform: scale(0.95);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#lightbox.open img {
+  transform: scale(1);
 }
 #lightbox-close {
   position: absolute;
@@ -1846,7 +1904,13 @@ footer {
   .services-grid-9 .service-item:nth-child(7) { top: 146px; z-index: 7; }
   .services-grid-9 .service-item:nth-child(8) { top: 158px; z-index: 8; }
   .services-grid-9 .service-item:nth-child(9) { top: 170px; z-index: 9; }
-  .projects-grid { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; gap: 20px; }
+  .project-placeholder { height: 320px; }
+  .project-placeholder-overlay {
+    opacity: 1;
+    background: linear-gradient(180deg, rgba(13,13,13,0) 35%, rgba(13,13,13,0.85) 100%);
+  }
+  .project-info-overlay { transform: translateY(0); }
   .about-inner { grid-template-columns: 1fr; }
   .about-images { order: -1; height: 360px; }
   .about-img-main { width: 90%; height: 300px; }
@@ -1928,12 +1992,7 @@ footer {
 <!-- SCROLL PROGRESS -->
 <div id="scroll-progress"></div>
 
-<!-- INTRO OVERLAY -->
-<div id="intro">
-  <img src="assets/logos/qlart_header_logo.webp" alt="Qlakaari Interior Logo" id="intro-logo">
-  <div id="intro-line"></div>
-  <div id="intro-tag">Complete Interior Design Solutions for Modern Living</div>
-</div>
+
 
 <!-- LIGHTBOX -->
 <div id="lightbox">
@@ -2037,11 +2096,26 @@ footer {
       <a href="#contact" class="link-gold">Get a Quote →</a>
     </div>
     <div class="about-images reveal" style="transition-delay:0.15s">
-      <img class="about-img-main" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=85" alt="Interior Design Studio" loading="lazy">
-      <img class="about-img-small" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=300&q=85" alt="Material and Finishes" loading="lazy">
-      <div class="about-badge">01 Current Project<br>10 Homes Renovated</div>
+      <img class="about-img-main" src="assets/About/qlakaari_interior_1.webp" alt="Qlakaari Interior Living Space" loading="lazy">
+      <img class="about-img-small" src="assets/About/qlakaari_interior_2.webp" alt="Qlakaari Interior Study & Modular Cabinetry" loading="lazy">
+      <div class="about-badge-card">
+        <div class="badge-status-pill">
+          <span class="badge-live-dot"></span>
+          <span>Active On-Site</span>
+        </div>
+        <div class="badge-stats-row">
+          <div class="badge-stat">
+            <span class="badge-stat-num">01</span>
+            <span class="badge-stat-lbl">Current Project</span>
+          </div>
+          <div class="badge-stat-sep"></div>
+          <div class="badge-stat">
+            <span class="badge-stat-num">10</span>
+            <span class="badge-stat-lbl">Homes Renovated</span>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 </section>
 
 <!-- SERVICES -->
@@ -2155,51 +2229,87 @@ footer {
   </div>
 
   <div class="projects-grid">
-    <!-- Image Placeholder 1 -->
-    <div class="project-placeholder reveal" onclick="openLightbox('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=1400&q=90')">
-      <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=900&q=85" alt="Project Image 01" loading="lazy">
+    <!-- Project 1: Space Odyssey Suite -->
+    <div class="project-placeholder reveal" onclick="openLightbox('assets/Galleries/qlakaari_gallery_1.webp')">
+      <img src="assets/Galleries/qlakaari_gallery_1.webp" alt="Space Odyssey Suite - Kids Theme Bedroom" loading="lazy">
       <div class="project-placeholder-overlay">
-        <div class="project-view-icon"><i class="fa-solid fa-expand"></i></div>
+        <div class="project-view-top">
+          <div class="project-view-icon" title="View Full Project"><i class="fa-solid fa-expand"></i></div>
+        </div>
+        <div class="project-info-overlay">
+          <span class="project-info-cat">Kids Bedroom · Custom Theme</span>
+          <h3 class="project-info-title">Space Odyssey Suite</h3>
+        </div>
       </div>
     </div>
 
-    <!-- Image Placeholder 2 -->
-    <div class="project-placeholder reveal" style="transition-delay:0.1s" onclick="openLightbox('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1400&q=90')">
-      <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=900&q=85" alt="Project Image 02" loading="lazy">
+    <!-- Project 2: Tree of Wonder Nook -->
+    <div class="project-placeholder reveal" style="transition-delay:0.08s" onclick="openLightbox('assets/Galleries/qlakaari_gallery_2.webp')">
+      <img src="assets/Galleries/qlakaari_gallery_2.webp" alt="Tree of Wonder Reading Nook & Study" loading="lazy">
       <div class="project-placeholder-overlay">
-        <div class="project-view-icon"><i class="fa-solid fa-expand"></i></div>
+        <div class="project-view-top">
+          <div class="project-view-icon" title="View Full Project"><i class="fa-solid fa-expand"></i></div>
+        </div>
+        <div class="project-info-overlay">
+          <span class="project-info-cat">Study & Play · Modular Joinery</span>
+          <h3 class="project-info-title">Tree of Wonder Nook</h3>
+        </div>
       </div>
     </div>
 
-    <!-- Image Placeholder 3 -->
-    <div class="project-placeholder reveal" style="transition-delay:0.2s" onclick="openLightbox('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=90')">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=85" alt="Project Image 03" loading="lazy">
+    <!-- Project 3: Contemporary Master Suite -->
+    <div class="project-placeholder reveal" style="transition-delay:0.16s" onclick="openLightbox('assets/Galleries/qlakaari_gallery_3.webp')">
+      <img src="assets/Galleries/qlakaari_gallery_3.webp" alt="Contemporary Master Suite with Glass Wardrobe" loading="lazy">
       <div class="project-placeholder-overlay">
-        <div class="project-view-icon"><i class="fa-solid fa-expand"></i></div>
+        <div class="project-view-top">
+          <div class="project-view-icon" title="View Full Project"><i class="fa-solid fa-expand"></i></div>
+        </div>
+        <div class="project-info-overlay">
+          <span class="project-info-cat">Master Suite · Tinted Glass Wardrobe</span>
+          <h3 class="project-info-title">Contemporary Master Suite</h3>
+        </div>
       </div>
     </div>
 
-    <!-- Image Placeholder 4 -->
-    <div class="project-placeholder reveal" style="transition-delay:0.1s" onclick="openLightbox('https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1400&q=90')">
-      <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=900&q=85" alt="Project Image 04" loading="lazy">
+    <!-- Project 4: Japandi Serene Bedroom -->
+    <div class="project-placeholder reveal" style="transition-delay:0.08s" onclick="openLightbox('assets/Galleries/qlakaari_gallery_4.webp')">
+      <img src="assets/Galleries/qlakaari_gallery_4.webp" alt="Japandi Serene Bedroom with Oak Accents" loading="lazy">
       <div class="project-placeholder-overlay">
-        <div class="project-view-icon"><i class="fa-solid fa-expand"></i></div>
+        <div class="project-view-top">
+          <div class="project-view-icon" title="View Full Project"><i class="fa-solid fa-expand"></i></div>
+        </div>
+        <div class="project-info-overlay">
+          <span class="project-info-cat">Warm Minimalist · Scandinavian Oak</span>
+          <h3 class="project-info-title">Japandi Serene Bedroom</h3>
+        </div>
       </div>
     </div>
 
-    <!-- Image Placeholder 5 -->
-    <div class="project-placeholder reveal" style="transition-delay:0.15s" onclick="openLightbox('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1400&q=90')">
-      <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900&q=85" alt="Project Image 05" loading="lazy">
+    <!-- Project 5: Handcrafted Mandir Sanctuary -->
+    <div class="project-placeholder reveal" style="transition-delay:0.16s" onclick="openLightbox('assets/Galleries/qlakaari_gallery_5.webp')">
+      <img src="assets/Galleries/qlakaari_gallery_5.webp" alt="Handcrafted Mandir Sanctuary with Laser Jaali" loading="lazy">
       <div class="project-placeholder-overlay">
-        <div class="project-view-icon"><i class="fa-solid fa-expand"></i></div>
+        <div class="project-view-top">
+          <div class="project-view-icon" title="View Full Project"><i class="fa-solid fa-expand"></i></div>
+        </div>
+        <div class="project-info-overlay">
+          <span class="project-info-cat">Sacred Space · Laser Jaali & Marble</span>
+          <h3 class="project-info-title">Handcrafted Mandir Sanctuary</h3>
+        </div>
       </div>
     </div>
 
-    <!-- Image Placeholder 6 -->
-    <div class="project-placeholder reveal" style="transition-delay:0.2s" onclick="openLightbox('https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1400&q=90')">
-      <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=900&q=85" alt="Project Image 06" loading="lazy">
+    <!-- Project 6: Bespoke Living & Media Lounge -->
+    <div class="project-placeholder reveal" style="transition-delay:0.24s" onclick="openLightbox('assets/About/qlakaari_interior_1.webp')">
+      <img src="assets/About/qlakaari_interior_1.webp" alt="Bespoke Living Room & Media Lounge" loading="lazy">
       <div class="project-placeholder-overlay">
-        <div class="project-view-icon"><i class="fa-solid fa-expand"></i></div>
+        <div class="project-view-top">
+          <div class="project-view-icon" title="View Full Project"><i class="fa-solid fa-expand"></i></div>
+        </div>
+        <div class="project-info-overlay">
+          <span class="project-info-cat">Living Area · Fluted Glass Partition</span>
+          <h3 class="project-info-title">Bespoke Living Lounge</h3>
+        </div>
       </div>
     </div>
   </div>
@@ -2585,34 +2695,15 @@ footer {
 <a href="tel:+918604410750" id="call-float" title="Call Us"><i class="fa fa-phone"></i></a>
 
 <script>
-// ── INTRO ANIMATION ──
-(function() {
-  const intro = document.getElementById('intro');
-  const skip = sessionStorage.getItem('qlakaari_intro_played');
-  if (skip) {
-    intro.style.display = 'none';
-    startHeroAnim();
-    return;
-  }
-  sessionStorage.setItem('qlakaari_intro_played', '1');
-  intro.classList.add('slide-up');
-  // After slide-up animation ends
-  intro.addEventListener('animationend', function(e) {
-    if (e.animationName === 'slideUp') {
-      intro.style.display = 'none';
-      startHeroAnim();
-    }
-  });
-  // Fallback
-  setTimeout(() => { intro.style.display = 'none'; startHeroAnim(); }, 3600);
-})();
-
+// ── HERO VIDEOS AUTOPLAY ──
 function startHeroAnim() {
   const dVid = document.getElementById('hero-video-desktop');
   if (dVid) { dVid.muted = true; dVid.play().catch(() => {}); }
   const mobVideo = document.getElementById('hero-video-mobile');
   if (mobVideo) { mobVideo.muted = true; mobVideo.play().catch(() => {}); }
 }
+startHeroAnim();
+document.addEventListener('DOMContentLoaded', startHeroAnim);
 
 // ── CURSOR ──
 const dot = document.getElementById('cursor-dot');
