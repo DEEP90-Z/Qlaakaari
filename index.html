@@ -818,23 +818,6 @@ body.cursor-hover #cursor-ring {
 .project-placeholder:hover .project-view-icon {
   transform: scale(1);
 }
-.project-placeholder-badge {
-  position: absolute;
-  top: 16px; left: 16px;
-  background: rgba(13, 13, 13, 0.75);
-  backdrop-filter: blur(8px);
-  color: var(--gold-light);
-  font-family: 'Plus Jakarta Sans', 'Jost', sans-serif;
-  font-size: 0.62rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  padding: 6px 14px;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  pointer-events: none;
-  z-index: 2;
-}
 
 /* ── PROCESS ── */
 #process {
@@ -1551,7 +1534,6 @@ footer {
   .footer-main > :first-child { grid-column: auto; }
   #call-float { bottom: 82px; }
   #wa-float { bottom: 24px; }
-  .hero-location { display: none; }
 }
 
 @media (max-width: 480px) {
@@ -2287,10 +2269,12 @@ document.addEventListener('keydown', e => {
 function submitForm() {
   const name = document.getElementById('fname').value || 'a visitor';
   const phone = document.getElementById('fphone').value || '';
+  const email = document.getElementById('femail').value || '';
   const type = document.getElementById('ftype').value || 'a remodeling project';
   const city = document.getElementById('fcity').value || 'Gurgaon';
   const msg = document.getElementById('fmessage').value || '';
-  const text = encodeURIComponent(`Hi Kaarigari Interior, I would like to get a quote.\n\nName: ${name}\nPhone: ${phone}\nProject Type: ${type}\nCity: ${city}\nMessage: ${msg}`);
+  const emailPart = email ? `\nEmail: ${email}` : '';
+  const text = encodeURIComponent(`Hi Kaarigari Interior, I would like to get a quote.\n\nName: ${name}\nPhone: ${phone}${emailPart}\nProject Type: ${type}\nCity: ${city}\nMessage: ${msg}`);
   window.open(`https://wa.me/918604410750?text=${text}`, '_blank');
 }
 
