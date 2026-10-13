@@ -276,138 +276,6 @@ body.cursor-hover #cursor-ring {
   object-position: center;
   z-index: 0;
 }
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 760px;
-  text-align: left;
-  margin: 0;
-  padding: 0;
-}
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Jost', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.24em;
-  color: var(--gold-light);
-  text-transform: uppercase;
-  background: rgba(184, 150, 90, 0.14);
-  border: 1px solid rgba(184, 150, 90, 0.38);
-  padding: 8px 18px;
-  border-radius: 30px;
-  backdrop-filter: blur(10px);
-  margin-bottom: 18px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-  opacity: 0;
-  transform: translateX(-50px);
-}
-.hero-eyebrow::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--gold-light);
-  box-shadow: 0 0 8px var(--gold);
-}
-.hero-h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.5rem, 5vw, 4.6rem);
-  font-weight: 400;
-  line-height: 1.08;
-  color: #fff;
-  margin-bottom: 16px;
-  text-align: left;
-  letter-spacing: -0.01em;
-  opacity: 0;
-  transform: translateX(-60px);
-  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.55);
-}
-.hero-sub {
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  font-size: clamp(0.95rem, 1.35vw, 1.15rem);
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 540px;
-  margin-bottom: 30px;
-  text-align: left;
-  letter-spacing: 0.01em;
-  opacity: 0;
-  transform: translateX(-50px);
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
-}
-.hero-btns {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  opacity: 0;
-  transform: translateX(-50px);
-}
-.btn-primary-hero {
-  font-family: 'Jost', sans-serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: #0D0D0D;
-  background: var(--gold);
-  padding: 15px 34px;
-  border-radius: 40px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  transition: all 0.35s ease;
-  border: none;
-}
-.btn-primary-hero:hover {
-  background: var(--gold-light);
-  color: #0D0D0D;
-  transform: translateY(-3px) scale(1.02);
-}
-.btn-ghost-hero {
-  font-family: 'Jost', sans-serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #fff;
-  text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  padding: 15px 30px;
-  border-radius: 40px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.35s ease;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.08);
-}
-.btn-ghost-hero:hover {
-  color: var(--gold-light);
-  border-color: var(--gold);
-  background: rgba(255, 255, 255, 0.16);
-  transform: translateY(-3px);
-}
-
-/* ── HERO SLIDE ANIMATION (LEFT TO RIGHT) ── */
-.hero-animate {
-  animation: heroSlideLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-@keyframes heroSlideLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 
 /* ── MILESTONES (STATS) ── */
 #stats {
@@ -1360,53 +1228,92 @@ body.cursor-hover #cursor-ring {
 }
 .test-dot.active { background: var(--gold); transform: scale(1.3); }
 
-/* ── MATERIALS ── */
-#materials {
+/* ── SPACES IN MOTION ── */
+#motion {
   background: var(--warm-white);
-  padding: 100px 5%;
-}
-.materials-head { max-width: 560px; margin-bottom: 56px; }
-.materials-head .section-heading { margin-bottom: 12px; }
-.materials-sub {
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  font-size: 0.85rem;
-  color: var(--taupe);
-}
-.materials-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 220px);
-  gap: 10px;
-}
-.material-item {
+  padding: 105px 6%;
   position: relative;
+}
+.motion-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 52px auto;
+}
+.motion-subtitle {
+  font-family: 'Plus Jakarta Sans', 'Jost', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--taupe);
+  line-height: 1.7;
+  margin-top: 12px;
+}
+.motion-grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 32px;
+  max-width: 1140px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.motion-item {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 9 / 16;
+  border-radius: 22px;
   overflow: hidden;
-  cursor: pointer;
+  border: 1px solid var(--stone);
+  background: #0D0D0D;
+  box-shadow: 0 12px 32px rgba(28, 28, 28, 0.08);
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  contain: layout paint;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
 }
-.material-item img {
-  width: 100%; height: 100%;
+.motion-item:hover {
+  transform: translateY(-6px) translateZ(0);
+  box-shadow: 0 20px 48px rgba(28, 28, 28, 0.15);
+  border-color: var(--gold);
+}
+.motion-video {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  transition: transform 0.7s ease;
+  display: block;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
 }
-.material-item:hover img { transform: scale(1.07); }
-.material-label {
+.motion-sound-btn {
   position: absolute;
-  inset: 0;
-  background: rgba(13,13,13,0.55);
+  bottom: 16px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(20, 20, 20, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  transition: opacity 0.4s;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, color 0.3s;
+  z-index: 2;
 }
-.material-item:hover .material-label { opacity: 1; }
-.material-label span {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: #fff;
-  letter-spacing: 0.1em;
+.motion-sound-btn:hover {
+  background: var(--gold);
+  color: #141414;
+  transform: scale(1.08);
+}
+.motion-sound-btn.unmuted {
+  background: var(--gold);
+  color: #141414;
 }
 
 /* ── CTA BANNER ── */
@@ -1490,12 +1397,14 @@ body.cursor-hover #cursor-ring {
 /* ── CONTACT ── */
 #contact {
   background: var(--off-white);
-  padding: 100px 5%;
+  padding: 100px 6%;
 }
 .contact-inner {
+  max-width: 1220px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 55fr 45fr;
-  gap: 80px;
+  grid-template-columns: 52fr 48fr;
+  gap: 60px;
 }
 .contact-form-wrap {}
 .contact-heading {
@@ -1582,96 +1491,119 @@ body.cursor-hover #cursor-ring {
   line-height: 1.6;
 }
 .contact-info-item i { color: var(--gold); font-size: 0.8rem; margin-top: 2px; min-width: 16px; }
-.contact-img {
+.contact-map-wrap {
   width: 100%;
   height: 100%;
-  min-height: 500px;
-  object-fit: cover;
+  min-height: 480px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(20, 20, 20, 0.08);
+  border: 1px solid rgba(216, 206, 191, 0.8);
+  background: var(--stone);
+  position: relative;
+}
+.contact-map-wrap iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  border: 0;
+  display: block;
 }
 
-/* ── FOOTER ── */
+/* ── FOOTER (WARM LUXURY PALETTE & ALIGNED CONTAINER) ── */
 footer {
-  background: var(--dark);
-  padding: 80px 5% 0;
+  background: #F4EFEA;
+  border-top: 1px solid rgba(216, 206, 191, 0.9);
+  padding: 80px 6% 0;
   position: relative;
   overflow: hidden;
 }
 .footer-watermark {
   position: absolute;
-  bottom: 60px; left: 50%;
+  bottom: 40px; left: 50%;
   transform: translateX(-50%);
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3rem, 8vw, 7rem);
+  font-size: clamp(3rem, 8vw, 7.5rem);
   font-weight: 700;
-  color: rgba(255,255,255,0.035);
+  color: rgba(20, 20, 20, 0.025);
   white-space: nowrap;
   pointer-events: none;
   user-select: none;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
 }
 .footer-main {
+  max-width: 1220px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 2fr 1.2fr 1.2fr;
-  gap: 60px;
+  grid-template-columns: 1.8fr 1fr 1.2fr;
+  gap: 50px;
   padding-bottom: 60px;
   position: relative;
   z-index: 1;
 }
 .footer-logo-img {
-  height: 68px;
+  height: 60px;
   width: auto;
-  max-width: 300px;
+  max-width: 260px;
   object-fit: contain;
 }
 .footer-tagline {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--gold);
-  margin: 16px 0 12px;
+  margin: 14px 0 10px;
 }
 .footer-desc {
   font-family: 'Jost', sans-serif;
   font-weight: 300;
-  font-size: 0.78rem;
-  line-height: 1.9;
-  color: rgba(255,255,255,0.35);
-  margin-bottom: 24px;
+  font-size: 0.82rem;
+  line-height: 1.85;
+  color: #635C53;
+  margin-bottom: 22px;
+  max-width: 440px;
 }
-.footer-socials { display: flex; gap: 16px; }
+.footer-socials { display: flex; gap: 12px; }
 .footer-social {
-  width: 36px; height: 36px;
-  border: 1px solid rgba(255,255,255,0.12);
+  width: 38px; height: 38px;
+  border: 1px solid rgba(216, 206, 191, 0.9);
+  background: #ffffff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255,255,255,0.4);
-  font-size: 0.7rem;
+  color: var(--charcoal);
+  font-size: 0.78rem;
   text-decoration: none;
-  transition: border-color 0.3s, color 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
 }
-.footer-social:hover { border-color: var(--gold); color: var(--gold); }
+.footer-social:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: var(--warm-white);
+  transform: translateY(-2px);
+}
 .footer-col-title {
   font-family: 'Jost', sans-serif;
-  font-size: 0.62rem;
-  letter-spacing: 0.25em;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 24px;
+  color: var(--charcoal);
+  margin-bottom: 20px;
 }
-.footer-links { list-style: none; }
+.footer-links { list-style: none; padding: 0; margin: 0; }
 .footer-links li { margin-bottom: 12px; }
 .footer-links a {
   font-family: 'Jost', sans-serif;
   font-weight: 300;
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.4);
+  font-size: 0.82rem;
+  color: #635C53;
   text-decoration: none;
-  transition: color 0.3s;
-  letter-spacing: 0.06em;
+  transition: color 0.3s ease;
 }
-.footer-links a:hover { color: var(--gold-light); }
+.footer-links a:hover { color: var(--gold); }
 .footer-contact-item {
   display: flex;
   align-items: flex-start;
@@ -1679,26 +1611,34 @@ footer {
   margin-bottom: 14px;
   font-family: 'Jost', sans-serif;
   font-weight: 300;
-  font-size: 0.78rem;
-  color: rgba(255,255,255,0.4);
+  font-size: 0.82rem;
+  color: #635C53;
   line-height: 1.6;
 }
-.footer-contact-item i { color: var(--gold); font-size: 0.75rem; margin-top: 2px; min-width: 14px; }
+.footer-contact-item i {
+  color: var(--gold);
+  font-size: 0.85rem;
+  margin-top: 2px;
+  min-width: 14px;
+}
 .footer-bottom {
+  max-width: 1220px;
+  margin: 0 auto;
   position: relative;
   z-index: 1;
-  border-top: 1px solid rgba(184,150,90,0.2);
-  padding: 22px 0;
+  border-top: 1px solid rgba(216, 206, 191, 0.8);
+  padding: 24px 0 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 .footer-copy {
   font-family: 'Jost', sans-serif;
   font-weight: 300;
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  color: rgba(255,255,255,0.25);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: #8C8275;
 }
 
 /* ── FLOATING CALL BUTTON ── */
@@ -1792,6 +1732,142 @@ footer {
 }
 #lightbox-close:hover { color: var(--gold); }
 
+/* ── SCROLL POPUP MODAL ── */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 13, 13, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
+}
+.popup-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+  visibility: visible;
+}
+.popup-card {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid rgba(216, 206, 191, 0.7);
+  border-top: 4px solid var(--gold);
+  padding: 38px 34px 30px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28), 0 0 1px rgba(197, 160, 89, 0.4);
+  transform: translateY(20px) scale(0.96);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.popup-overlay.open .popup-card {
+  transform: translateY(0) scale(1);
+}
+.popup-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--taupe);
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.25s, transform 0.25s;
+}
+.popup-close-btn:hover {
+  color: var(--gold);
+  transform: scale(1.1);
+}
+.popup-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.85rem, 4vw, 2.35rem);
+  font-weight: 400;
+  color: var(--charcoal);
+  margin-bottom: 6px;
+  line-height: 1.15;
+}
+.popup-sub {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: #635C53;
+  line-height: 1.55;
+  margin-bottom: 22px;
+}
+.popup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.popup-field {
+  display: flex;
+  flex-direction: column;
+}
+.popup-field label {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  margin-bottom: 6px;
+}
+.popup-field input {
+  width: 100%;
+  background: var(--warm-white);
+  border: 1px solid rgba(216, 206, 191, 0.85);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.popup-field input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);
+}
+.popup-btn-submit {
+  width: 100%;
+  background: var(--gold);
+  color: #111111;
+  border: none;
+  border-radius: 8px;
+  padding: 15px 20px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+.popup-btn-submit:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(197, 160, 89, 0.35);
+}
+.popup-btn-submit i {
+  font-size: 1.05rem;
+}
+
 /* ── RESPONSIVE ── */
 @media (pointer: coarse) {
   body { cursor: auto !important; }
@@ -1808,7 +1884,8 @@ footer {
   .footer-main > :first-child { grid-column: 1 / -1; }
   .process-boxes-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .process-markers-track { display: none; }
-  .process-convergence-wrap { height: 80px; }
+  .motion-grid { gap: 24px; }
+  .motion-item { max-width: 290px; }
 }
 
 @media (max-width: 768px) {
@@ -1921,9 +1998,20 @@ footer {
   .process-convergence-wrap { height: 70px; }
   .process-main-box { padding: 28px 20px 30px; border-radius: 20px; }
   .main-box-tagline { font-size: 1.85rem; }
-  .materials-grid { grid-template-columns: repeat(2, 1fr); }
-  .contact-inner { grid-template-columns: 1fr; }
-  .contact-inner > img { display: none; }
+  #motion { padding: 85px 5%; }
+  .motion-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+  }
+  .motion-item {
+    width: 100%;
+    max-width: 310px;
+    aspect-ratio: 9 / 16;
+  }
+  .contact-inner { grid-template-columns: 1fr; gap: 44px; }
+  .contact-map-wrap { min-height: 340px; height: 340px; border-radius: 14px; }
+  .contact-map-wrap iframe { min-height: 340px; height: 340px; }
   .form-row { grid-template-columns: 1fr; }
   .footer-main { grid-template-columns: 1fr; gap: 40px; }
   .footer-main > :first-child { grid-column: auto; }
@@ -1998,6 +2086,34 @@ footer {
 <div id="lightbox">
   <button id="lightbox-close">&times;</button>
   <img id="lightbox-img" src="" alt="">
+</div>
+
+<!-- CONSULTATION SCROLL POPUP -->
+<div id="consultation-popup" class="popup-overlay" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+  <div class="popup-card">
+    <button class="popup-close-btn" onclick="closeConsultationPopup()" aria-label="Close popup">&times;</button>
+    <h3 id="popup-title" class="popup-heading">Talk to our Team</h3>
+    <p class="popup-sub">Planning an interior or renovation project in Jhansi? Leave your number and our team will connect with you.</p>
+    
+    <form class="popup-form" onsubmit="submitPopupForm(event)">
+      <div class="popup-field">
+        <label for="pname">Your Name</label>
+        <input type="text" id="pname" placeholder="Enter your name" required autocomplete="name">
+      </div>
+      <div class="popup-field">
+        <label for="pphone">Phone Number</label>
+        <input type="tel" id="pphone" placeholder="Enter phone number" required autocomplete="tel">
+      </div>
+      <div class="popup-field">
+        <label for="plocation">Location / Area</label>
+        <input type="text" id="plocation" placeholder="e.g. Shivaji Nagar, Jhansi" required>
+      </div>
+      <button type="submit" class="popup-btn-submit">
+        <span>Connect on WhatsApp</span>
+        <i class="fab fa-whatsapp"></i>
+      </button>
+    </form>
+  </div>
 </div>
 
 <!-- MOBILE NAV -->
@@ -2529,45 +2645,41 @@ footer {
   </div>
 </section>
 
-<!-- MATERIALS -->
-<section id="materials">
-  <div class="materials-head reveal">
-    <span class="section-eyebrow">— Craftsmanship</span>
-    <h2 class="section-heading">Our Design Language</h2>
-    <p class="materials-sub">Materials, textures, and palettes we love working with</p>
+<!-- SPACES IN MOTION -->
+<section id="motion">
+  <div class="section-number-bg">05</div>
+  <div class="motion-header reveal">
+    <span class="section-eyebrow">— Walkthroughs</span>
+    <h2 class="section-heading">Spaces in Motion</h2>
+    <p class="motion-subtitle">Real interior walkthroughs capturing light, detail, and craftsmanship.</p>
   </div>
-  <div class="materials-grid reveal" style="transition-delay:0.1s">
-    <div class="material-item">
-      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Italian Marble" loading="lazy">
-      <div class="material-label"><span>Italian Marble</span></div>
+
+  <div class="motion-grid">
+    <div class="motion-item reveal">
+      <video class="motion-video" muted loop playsinline webkit-playsinline preload="metadata">
+        <source src="assets/Videos/qlakaari_video_1_optimized.webm" type="video/webm">
+      </video>
+      <button class="motion-sound-btn" onclick="toggleSimpleSound(event, this)" aria-label="Toggle Sound" title="Toggle Sound">
+        <i class="fa-solid fa-volume-xmark"></i>
+      </button>
     </div>
-    <div class="material-item">
-      <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=400&q=80" alt="Teak Wood" loading="lazy">
-      <div class="material-label"><span>Teak Wood</span></div>
+
+    <div class="motion-item reveal" style="transition-delay:0.1s">
+      <video class="motion-video" muted loop playsinline webkit-playsinline preload="metadata">
+        <source src="assets/Videos/qlakaari_video_2_optimized.webm" type="video/webm">
+      </video>
+      <button class="motion-sound-btn" onclick="toggleSimpleSound(event, this)" aria-label="Toggle Sound" title="Toggle Sound">
+        <i class="fa-solid fa-volume-xmark"></i>
+      </button>
     </div>
-    <div class="material-item">
-      <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=400&q=80" alt="Linen & Velvet" loading="lazy">
-      <div class="material-label"><span>Linen & Velvet</span></div>
-    </div>
-    <div class="material-item">
-      <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=400&q=80" alt="Brass Fixtures" loading="lazy">
-      <div class="material-label"><span>Brass Fixtures</span></div>
-    </div>
-    <div class="material-item">
-      <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400&q=80" alt="Curated Palettes" loading="lazy">
-      <div class="material-label"><span>Curated Palettes</span></div>
-    </div>
-    <div class="material-item">
-      <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=400&q=80" alt="Quartz Countertops" loading="lazy">
-      <div class="material-label"><span>Quartz Surfaces</span></div>
-    </div>
-    <div class="material-item">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Natural Light" loading="lazy">
-      <div class="material-label"><span>Natural Light</span></div>
-    </div>
-    <div class="material-item">
-      <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=400&q=80" alt="Cane & Rattan" loading="lazy">
-      <div class="material-label"><span>Cane & Rattan</span></div>
+
+    <div class="motion-item reveal" style="transition-delay:0.2s">
+      <video class="motion-video" muted loop playsinline webkit-playsinline preload="metadata">
+        <source src="assets/Hero/Hero.webm" type="video/webm">
+      </video>
+      <button class="motion-sound-btn" onclick="toggleSimpleSound(event, this)" aria-label="Toggle Sound" title="Toggle Sound">
+        <i class="fa-solid fa-volume-xmark"></i>
+      </button>
     </div>
   </div>
 </section>
@@ -2606,28 +2718,8 @@ footer {
           </div>
         </div>
         <div class="form-field">
-          <label>Email Address</label>
-          <input type="email" id="femail" placeholder="qlakaariinterior@gmail.com">
-        </div>
-        <div class="form-row">
-          <div class="form-field">
-            <label>Confirmed Service / Project Type</label>
-            <select id="ftype">
-              <option value="">Select service</option>
-              <option>Kitchen Remodeling</option>
-              <option>Bathroom Remodeling</option>
-              <option>Home Additions</option>
-              <option>Complete Home Remodel</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label>Location / City</label>
-            <input type="text" id="fcity" placeholder="Shivaji Nagar, Jhansi">
-          </div>
-        </div>
-        <div class="form-field">
-          <label>Message</label>
-          <textarea id="fmessage" placeholder="Tell us about your project requirements..."></textarea>
+          <label>Location / City</label>
+          <input type="text" id="fcity" placeholder="Shivaji Nagar, Jhansi">
         </div>
         <button class="btn-submit" onclick="submitForm()">Get a Quote →</button>
       </div>
@@ -2644,7 +2736,9 @@ footer {
         </div>
       </div>
     </div>
-    <img class="contact-img reveal" style="transition-delay:0.15s" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=85" alt="Qlakaari Interior Studio" loading="lazy">
+    <div class="contact-map-wrap reveal" style="transition-delay:0.15s">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2188002.4175585057!2d76.15538685624998!3d25.450348400000014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397777ba00127017%3A0x6724c2bc21284cc3!2sQlaKaari%20interior!5e1!3m2!1sen!2sin!4v1791637711872!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Qlakaari Interior Studio Jhansi on Google Maps"></iframe>
+    </div>
   </div>
 </section>
 
@@ -2674,6 +2768,7 @@ footer {
         <li><a href="#projects">Featured Projects</a></li>
         <li><a href="#process">Our Process</a></li>
         <li><a href="#testimonials">Client Reviews</a></li>
+        <li><a href="#motion">Spaces in Motion</a></li>
         <li><a href="#contact">Get a Quote</a></li>
       </ul>
     </div>
@@ -2695,15 +2790,40 @@ footer {
 <a href="tel:+918604410750" id="call-float" title="Call Us"><i class="fa fa-phone"></i></a>
 
 <script>
-// ── HERO VIDEOS AUTOPLAY ──
-function startHeroAnim() {
+// ── HERO VIDEO VIEWPORT PLAYBACK ──
+let isHeroVisible = true;
+function updateHeroVideoPlayback() {
   const dVid = document.getElementById('hero-video-desktop');
-  if (dVid) { dVid.muted = true; dVid.play().catch(() => {}); }
-  const mobVideo = document.getElementById('hero-video-mobile');
-  if (mobVideo) { mobVideo.muted = true; mobVideo.play().catch(() => {}); }
+  const mVid = document.getElementById('hero-video-mobile');
+  const isMobile = window.innerWidth <= 768;
+
+  if (isMobile) {
+    if (dVid && !dVid.paused) dVid.pause();
+    if (mVid && isHeroVisible) { mVid.muted = true; mVid.play().catch(() => {}); }
+  } else {
+    if (mVid && !mVid.paused) mVid.pause();
+    if (dVid && isHeroVisible) { dVid.muted = true; dVid.play().catch(() => {}); }
+  }
 }
-startHeroAnim();
-document.addEventListener('DOMContentLoaded', startHeroAnim);
+const heroSection = document.getElementById('hero');
+if (heroSection && 'IntersectionObserver' in window) {
+  const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      isHeroVisible = entry.isIntersecting;
+      const dVid = document.getElementById('hero-video-desktop');
+      const mVid = document.getElementById('hero-video-mobile');
+      if (isHeroVisible) {
+        updateHeroVideoPlayback();
+      } else {
+        if (dVid) dVid.pause();
+        if (mVid) mVid.pause();
+      }
+    });
+  }, { threshold: 0.05 });
+  heroObserver.observe(heroSection);
+}
+window.addEventListener('resize', updateHeroVideoPlayback, { passive: true });
+updateHeroVideoPlayback();
 
 // ── CURSOR ──
 const dot = document.getElementById('cursor-dot');
@@ -2722,7 +2842,7 @@ function animateRing() {
   requestAnimationFrame(animateRing);
 }
 animateRing();
-document.querySelectorAll('a, button, .service-item, .project-placeholder, .material-item').forEach(el => {
+document.querySelectorAll('a, button, .service-item, .project-placeholder, .motion-item, .motion-sound-btn').forEach(el => {
   el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
   el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
 });
@@ -2892,30 +3012,153 @@ document.addEventListener('keydown', e => {
   }
 });
 
-// ── FORM SUBMIT → WHATSAPP ──
+// ── FORM SUBMIT → WHATSAPP (NAME, PHONE, LOCATION ONLY) ──
 function submitForm() {
-  const name = document.getElementById('fname').value || 'a visitor';
-  const phone = document.getElementById('fphone').value || '';
-  const email = document.getElementById('femail').value || '';
-  const type = document.getElementById('ftype').value || 'a remodeling project';
-  const city = document.getElementById('fcity').value || 'Jhansi';
-  const msg = document.getElementById('fmessage').value || '';
-  const emailPart = email ? `\nEmail: ${email}` : '';
-  const text = encodeURIComponent(`Hi Qlakaari Interior, I would like to get a quote.\n\nName: ${name}\nPhone: ${phone}${emailPart}\nProject Type: ${type}\nCity: ${city}\nMessage: ${msg}`);
+  const name = document.getElementById('fname').value.trim() || 'A visitor';
+  const phone = document.getElementById('fphone').value.trim() || '';
+  const city = document.getElementById('fcity').value.trim() || 'Jhansi';
+  const text = encodeURIComponent(`Hi Qlakaari Interior, I would like to get a quote.\n\n👤 Name: ${name}\n📞 Phone: ${phone}\n📍 Location: ${city}`);
   window.open(`https://wa.me/918604410750?text=${text}`, '_blank');
 }
 
-// ── HERO VIDEO PLAYBACK ──
-function initHeroVideos() {
-  const dVid = document.getElementById('hero-video-desktop');
-  const mVid = document.getElementById('hero-video-mobile');
-  if (dVid) { dVid.play().catch(() => {}); }
-  if (mVid) { mVid.play().catch(() => {}); }
+// ── SCROLL POPUP MODAL (TRIGGERS IN MID OF WEBSITE) ──
+const consultationPopup = document.getElementById('consultation-popup');
+let popupTriggered = false;
+
+function openConsultationPopup() {
+  if (!consultationPopup) return;
+  consultationPopup.classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initHeroVideos);
-} else {
-  initHeroVideos();
+
+function closeConsultationPopup() {
+  if (!consultationPopup) return;
+  consultationPopup.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function submitPopupForm(e) {
+  if (e) e.preventDefault();
+  const name = document.getElementById('pname').value.trim() || 'A visitor';
+  const phone = document.getElementById('pphone').value.trim() || '';
+  const location = document.getElementById('plocation').value.trim() || 'Jhansi';
+  
+  const text = encodeURIComponent(`Hi Qlakaari Interior, I would like to discuss an interior project.\n\n👤 Name: ${name}\n📞 Phone: ${phone}\n📍 Location: ${location}`);
+  window.open(`https://wa.me/918604410750?text=${text}`, '_blank');
+  closeConsultationPopup();
+}
+
+function checkScrollForPopup() {
+  if (popupTriggered) return;
+
+  const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+  // Trigger smoothly when user scrolls past 650px (into services / middle of site)
+  if (scrollY > 650) {
+    popupTriggered = true;
+    setTimeout(() => {
+      openConsultationPopup();
+    }, 350);
+  }
+}
+
+window.addEventListener('scroll', checkScrollForPopup, { passive: true });
+// Also trigger if page was refreshed midway down
+setTimeout(checkScrollForPopup, 800);
+
+if (consultationPopup) {
+  consultationPopup.addEventListener('click', e => {
+    if (e.target === consultationPopup) {
+      closeConsultationPopup();
+    }
+  });
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    if (consultationPopup && consultationPopup.classList.contains('open')) {
+      closeConsultationPopup();
+    }
+  }
+});
+
+// ── SPACES IN MOTION ──
+function toggleSimpleSound(e, btn) {
+  if (e) e.stopPropagation();
+  const item = btn.closest('.motion-item');
+  const video = item.querySelector('.motion-video');
+  if (!video) return;
+  video.muted = !video.muted;
+  if (video.muted) {
+    btn.classList.remove('unmuted');
+    btn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+  } else {
+    btn.classList.add('unmuted');
+    btn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+  }
+}
+
+// ── FLUID 60FPS REEL PLAYBACK (SINGLE ACTIVE STREAM = ZERO LAG) ──
+const motionItems = document.querySelectorAll('.motion-item');
+let activeReelIndex = 0;
+let isMotionVisible = false;
+
+function setActiveReel(index) {
+  motionItems.forEach((item, i) => {
+    const vid = item.querySelector('.motion-video');
+    if (!vid) return;
+    if (i === index && isMotionVisible) {
+      vid.play().catch(() => {});
+      item.classList.add('active-reel');
+    } else {
+      vid.pause();
+      item.classList.remove('active-reel');
+    }
+  });
+  activeReelIndex = index;
+}
+
+motionItems.forEach((item, i) => {
+  // Hover to play immediately (Desktop)
+  item.addEventListener('mouseenter', () => {
+    if (isMotionVisible) {
+      setActiveReel(i);
+    }
+  });
+
+  // Tap / click to play (Mobile & Desktop)
+  item.addEventListener('click', (e) => {
+    if (e.target.closest('.motion-sound-btn')) return;
+    const vid = item.querySelector('.motion-video');
+    if (vid) {
+      if (vid.paused) {
+        setActiveReel(i);
+      } else {
+        vid.pause();
+        item.classList.remove('active-reel');
+      }
+    }
+  });
+});
+
+// Viewport observer: only play when section is in view, pause all when scrolled away
+const motionSecEl = document.getElementById('motion');
+if (motionSecEl && 'IntersectionObserver' in window) {
+  const motionSecObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      isMotionVisible = entry.isIntersecting;
+      if (isMotionVisible) {
+        setActiveReel(activeReelIndex);
+      } else {
+        motionItems.forEach(item => {
+          const vid = item.querySelector('.motion-video');
+          if (vid) vid.pause();
+          item.classList.remove('active-reel');
+        });
+      }
+    });
+  }, { threshold: 0.15 });
+
+  motionSecObserver.observe(motionSecEl);
 }
 </script>
 </body>
